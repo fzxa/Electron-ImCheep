@@ -12,11 +12,42 @@
 .sidebar-group {
     float: left;
     width: 37.6%;
-    min-width:240px;
+    min-width:300px;
     height: 100%;
     border: 1px solid var(--light);
     background-color: var(--white);
 }
+
+ .top {
+    position: relative;
+    width: 100%;
+    height: 96px;
+    padding: 29px;
+}
+ .top input {
+     float: left;
+     width: 188px;
+     height: 42px;
+     padding: 0 15px;
+     border: 1px solid var(--light);
+     background-color: #eceff1;
+     border-radius: 21px;
+     font-family: 'Source Sans Pro', sans-serif;
+     font-weight: 400;
+ }
+
+ .top  a.search {
+     display: block;
+     float: left;
+     width: 42px;
+     height: 42px;
+     margin-left: 10px;
+     border: 1px solid var(--light);
+     background-color: var(--blue);
+     background-repeat: no-repeat;
+     background-position: top 12px left 14px;
+     border-radius: 50%;
+ }
 
 
 .people {

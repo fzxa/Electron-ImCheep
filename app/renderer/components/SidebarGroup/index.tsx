@@ -3,10 +3,15 @@ import './SidebarGroup.css';
 export default class NavGroup extends Component {
     render() {
         // @ts-ignore
+        // @ts-ignore
         return (
             <div className="sidebar-group">
+                <div className="top">
+                    <input type="text" placeholder="Search" />
+                    <a href="javascript:;" className="search"></a>
+                </div>
                 <ul className="people">
-                    <li className="person" data-chat="person1">
+                    <li className="person active" data-chat="person1">
                         <img src="/image/dog.png" alt="" />
                         <span className="name">Thomas Bangalter</span>
                         <span className="time">2:09 PM</span>
