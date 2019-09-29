@@ -11,6 +11,7 @@ const mainMenuTemplate: MenuItemConstructorOptions[]  = [
       { label: 'Copy', accelerator: 'CmdOrCtrl+C', role: 'copy' },
       { label: 'Paste', accelerator: 'CmdOrCtrl+V', role: 'paste' },
       { label: 'Select All', accelerator: 'CmdOrCtrl+A', role: 'selectall' },
+      { label: 'Developers Tools', accelerator: 'Shift+CmdOrCtrl+I /', role: 'Dev Tools' },
   ]}
 ];
 

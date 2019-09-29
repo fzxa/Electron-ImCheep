@@ -1,0 +1,14 @@
+.navigation {
+    width:70px;
+    main-width:70px;
+    background:#fff;
+    border:1px solid red;
+}
+
+.nav-avatar{
+    width:30px;
+    height:30px;
+    border:1px solid red;
+    margin:40px auto 30px;
+    border-radius:100%;
+}
