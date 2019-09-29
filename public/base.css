@@ -28,8 +28,13 @@ ol, ul {
 }
 
 li {
-    display: list-item;
+    list-style: none;
     text-align: -webkit-match-parent;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
 }
 
 :root {
