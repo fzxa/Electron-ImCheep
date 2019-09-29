@@ -7,7 +7,7 @@ export default class Home extends Component {
       <div className="App">
         <header className="App-header">
           {/*<img src={logo} className="App-logo" alt="logo" />*/}
-          <h1 className="App-title">imCheep</h1>
+          <h1 className="App-title">hehehe</h1>
         </header>
         <p className="App-intro">
           1111
