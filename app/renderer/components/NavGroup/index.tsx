@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './NavGroup.css';
-export default class NavGroup extends Component {
+export default class SidebarGroup extends Component {
     render() {
         return (
             <nav className="navigation">

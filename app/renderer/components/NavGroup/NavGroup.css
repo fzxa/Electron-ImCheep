@@ -1,6 +1,7 @@
+
 .navigation {
     width:70px;
-    main-width:70px;
+    min-width:70px;
     background:#fff;
     border:1px solid red;
 }
@@ -11,4 +12,22 @@
     border:1px solid red;
     margin:40px auto 30px;
     border-radius:100%;
+}
+.ti-pencil:before{
+    content: "\e61c";
+}
+
+.ti-user:before {
+    content: "\e602";
+}
+
+.ti-star:before {
+    content: "\e60a";
+}
+
+.ti-pencil:before {
+    content: "\e61c";
+}
+.ti-settings:before {
+    content: "\e60f";
 }
