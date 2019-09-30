@@ -13,14 +13,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 * {
     -webkit-user-select: none;
-    -webkit-app-region: drag;
 }
 body {
     background:#ebebeb;
     position:static;
     overflow:hidden;
     font-family: 'Source Sans Pro', sans-serif;
-    -webkit-app-region: drag;
 }
 
 ol, ul {
