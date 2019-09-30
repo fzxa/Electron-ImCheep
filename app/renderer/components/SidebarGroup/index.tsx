@@ -12,7 +12,7 @@ export default class NavGroup extends Component {
                 <ul className="people">
                     <li className="person" data-chat="person1">
                         <img src="/image/dog.png" alt="" />
-                        <span className="name">Zanewang</span>
+                        <span className="name">Fzxa</span>
                         <span className="time">2:09 PM</span>
                         <span className="preview">Hello!...</span>
                     </li>

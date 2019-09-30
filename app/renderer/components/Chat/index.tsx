@@ -1,52 +1,52 @@
 import React, { Component } from 'react';
-import './SidebarGroup.css';
+import './Chat.css';
 export default class NavGroup extends Component {
     render() {
-        // @ts-ignore
         return (
-            <div className="sidebar-group">
-                <div className="top">
-                    <input type="text" placeholder="Search" />
-                    <a href="javascript:;" className="search"></a>
+            <div className="chat">
+                <div className="chat-header">
+                    <span>To: <span className="name">王振（Fzxa）</span></span>
                 </div>
-                <ul className="people">
-                    <li className="person" data-chat="person1">
-                        <img src="/image/dog.png" alt="" />
-                        <span className="name">Fzxa</span>
-                        <span className="time">2:09 PM</span>
-                        <span className="preview">Hello!...</span>
-                    </li>
-                    <li className="person" data-chat="person2">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Fzxa</span>
-                            <span className="time">1:44 PM</span>
-                        <span className="preview">Hello!...</span>
-                    </li>
-                    <li className="person" data-chat="person3">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Zanewang</span>
-                            <span className="time">2:09 PM</span>
-                            <span className="preview">Hello!...</span>
-                    </li>
-                    <li className="person" data-chat="person4">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Zanewang</span>
-                            <span className="time">2:09 PM</span>
-                        <span className="preview">Hello!...</span>
-                    </li>
-                    <li className="person" data-chat="person5">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Zanewang</span>
-                            <span className="time">2:09 PM</span>
-                        <span className="preview">Hello!...</span>
-                    </li>
-                    <li className="person" data-chat="person6">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Zanewang</span>
-                            <span className="time">2:09 PM</span>
-                        <span className="preview">Hello!...</span>
-                    </li>
-                </ul>
+                <div className="chat-body">
+                    <div className="chat-active" data-chat="person1">
+                        <div className="conversation-start">
+                            <span>Today, 6:48 AM</span>
+                        </div>
+                        <div className="bubble you">
+                            How are you,
+                        </div>
+                        <div className="bubble me">
+                            Im fine, Think you ,and you?
+                        </div>
+                        <div className="bubble you">
+                            Im fint too
+                        </div>
+                        <div className="bubble me">
+                            good bye
+                        </div>
+                        <div className="bubble you">
+                            How are you,
+                        </div>
+                        <div className="bubble me">
+                            Im fine, Think you ,and you?
+                        </div>
+                        <div className="bubble you">
+                            Im fint too
+                        </div>
+                        <div className="bubble me">
+                            good bye
+                        </div>
+                        <div className="write">
+                            <a href="javascript:;" className="write-link attach"></a>
+                            <input type="text" />
+                            <a href="javascript:;" className="write-link smiley"></a>
+                            <a href="javascript:;" className="write-link send"></a>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
         );
     }
