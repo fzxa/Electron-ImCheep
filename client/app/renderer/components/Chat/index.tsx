@@ -5,7 +5,7 @@ export default class NavGroup extends Component {
         return (
             <div className="chat">
                 <div className="chat-header">
-                    <span>To: <span className="name">王振（Fzxa）</span></span>
+                    <span> <span className="name">王振（Fzxa）</span></span>
                 </div>
                 <div className="chat-body">
                     <div className="chat-active" data-chat="person1">

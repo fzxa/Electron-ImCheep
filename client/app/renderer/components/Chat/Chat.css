@@ -5,9 +5,9 @@
 
 .chat-header {
     width: 100%;
-    height: 47px;
-    padding: 15px 29px;
-    background-color: #eceff1;
+    height: 60px;
+    padding: 20px 29px;
+    background-color:var(--white);
 }
 
 .chat-header span {
@@ -75,12 +75,12 @@
 /*chat message*/
 
 .bubble {
-    font-size: 16px;
+    font-size: 14px;
     position: relative;
     display: inline-block;
     clear: both;
     margin-bottom: 8px;
-    padding: 13px 14px;
+    padding: 10px 14px;
     vertical-align: top;
     border-radius: 5px;
 }
