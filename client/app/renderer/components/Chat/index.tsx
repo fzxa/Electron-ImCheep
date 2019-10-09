@@ -36,17 +36,19 @@ export default class NavGroup extends Component {
                         <div className="bubble me">
                             good bye
                         </div>
-                        <div className="write">
-                            <a href="javascript:;" className="write-link attach"></a>
-                            <input type="text" />
-                            <a href="javascript:;" className="write-link smiley"></a>
-                            <a href="javascript:;" className="write-link send"></a>
-                        </div>
+                        {/*<div className="write">*/}
+
+                            {/*<input type="text" />*/}
+
+                        {/*</div>*/}
 
                     </div>
 
                 </div>
 
+                <div className="chat-footer">
+                    123123213
+                </div>
             </div>
         );
     }
