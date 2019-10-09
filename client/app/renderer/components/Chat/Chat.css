@@ -83,6 +83,10 @@
     padding: 10px 14px;
     vertical-align: top;
     border-radius: 5px;
+
+    word-break: break-all;
+    white-space: pre-wrap!important;
+    word-wrap: break-word!important;
 }
 .bubble {
     transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
@@ -95,8 +99,9 @@
 
 .bubble.me {
     float: right;
+    max-width:80%;
     color: var(--dark);
-    background-color: #eceff1;
+    background-color: #B7E2FF;
     align-self: flex-end;
     -webkit-animation-name: slideFromRight;
     animation-name: slideFromRight;
@@ -104,8 +109,9 @@
 
 .bubble.you {
     float: left;
-    color: var(--white);
-    background-color: var(--blue);
+    max-width:80%;
+    /*color: var(--white);*/
+    background-color: #eceff1;
     align-self: flex-start;
     -webkit-animation-name: slideFromLeft;
     animation-name: slideFromLeft;
@@ -124,25 +130,23 @@
 }
 .bubble.you:before {
     left: -3px;
-    background-color: var(--blue);
+    background-color: #eceff1;
 }
 
 .bubble.me:before {
     right: -3px;
-    background-color: #eceff1;
+    background-color: #B7E2FF;
 }
 
 /*write*/
 .write {
     position: absolute;
-    bottom: 29px;
-    left: 30px;
-    height: 42px;
+    bottom: 0;
+    left: 0;
+    height: 180px;
     padding-left: 8px;
-    border: 1px solid var(--light);
-    background-color: #eceff1;
-    width: calc(100% - 58px);
-    border-radius: 5px;
+    border-top: 1px solid var(--light);
+    width: 100%;
 }
 
 .write input {

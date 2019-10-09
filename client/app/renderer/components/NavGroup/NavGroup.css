@@ -56,7 +56,7 @@
 }
 
 .nav-group ul li a.active {
-    color: #3db16b;
+    color: var(--blue);
 }
 
 .nav-group ul li.brackets {
