@@ -36,18 +36,38 @@ export default class NavGroup extends Component {
                         <div className="bubble me">
                             good bye
                         </div>
-                        {/*<div className="write">*/}
-
-                            {/*<input type="text" />*/}
-
-                        {/*</div>*/}
-
                     </div>
 
                 </div>
 
                 <div className="chat-footer">
-                    123123213
+                    <div className="message-pannel">
+                        <ul>
+                            <li>
+                                <a href="#"><i className="ti-face-smile"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i className="ti-cut"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i className="ti-image"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i className="ti-folder"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i className="ti-star"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i className="ti-headphone-alt"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="message-box">
+                        <textarea>
+                            111
+                        </textarea>
+                    </div>
                 </div>
             </div>
         );

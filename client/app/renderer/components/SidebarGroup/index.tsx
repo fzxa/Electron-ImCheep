@@ -6,8 +6,8 @@ export default class NavGroup extends Component {
         return (
             <div className="sidebar-group">
                 <div className="top">
-                    <input type="text" placeholder="搜索" />
-                    <a href="javascript:;" className="search"></a>
+                    <input type="search" placeholder="搜索" />
+                    <a href="javascript:;" className="ti-plus"></a>
                 </div>
                 <ul className="people">
                     <li className="person active" data-chat="person1">

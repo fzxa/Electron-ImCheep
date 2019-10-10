@@ -2,13 +2,14 @@
 .navigation {
     width:66px;
     min-width:66px;
-    background:#efefef;
+    background:#EDEDEF;
+    -webkit-app-region:drag;
 }
 
 .nav-avatar {
     width:35px;
     height:35px;
-    margin:40px auto 30px;
+    margin:60px auto 30px;
 }
 
  .nav-avatar img{
@@ -81,28 +82,28 @@
     right: 10px;
 }
 
-.ti-comment-alt:before {
-    content: "\e645";
-}
-.ti-pencil:before{
-    content: "\e61c";
-}
+/*.ti-comment-alt:before {*/
+    /*content: "\e645";*/
+/*}*/
+/*.ti-pencil:before{*/
+    /*content: "\e61c";*/
+/*}*/
 
-.ti-user:before {
-    content: "\e602";
-}
+/*.ti-user:before {*/
+    /*content: "\e602";*/
+/*}*/
 
-.ti-star:before {
-    content: "\e60a";
-}
+/*.ti-star:before {*/
+    /*content: "\e60a";*/
+/*}*/
 
-.ti-pencil:before {
-    content: "\e61c";
-}
-.ti-settings:before {
-    content: "\e60f";
-}
+/*.ti-pencil:before {*/
+    /*content: "\e61c";*/
+/*}*/
+/*.ti-settings:before {*/
+    /*content: "\e60f";*/
+/*}*/
 
-.ti-power-off:before {
-    content: "\e682";
-}
+/*.ti-power-off:before {*/
+    /*content: "\e682";*/
+/*}*/

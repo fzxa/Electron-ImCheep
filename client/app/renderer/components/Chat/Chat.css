@@ -39,6 +39,7 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
     border-bottom:1px solid var(--light);
+    -webkit-app-region:drag;
 }
 
 .chat-header span {
@@ -59,12 +60,16 @@
     -moz-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    margin: 20px 0;
+    /*margin: 20px 0;*/
+    overflow:hidden;
+    outline: none;
+    -webkit-user-select:text;
 }
 .chat-footer {
     /* border-top: 2px solid #e1e1e1; */
     /*padding-top: 20px;*/
-    background:red;
+    border-top:1px solid var(--light);
+    background:var(--white);
     min-height: 180px;
 }
 
@@ -205,4 +210,48 @@
     font-weight: 400;
     top:30px;
     position:absolute;
+}
+
+
+/*message*/
+.message-pannel {
+    height:35px;
+}
+.message-pannel ul{
+    margin-left:5px;
+}
+.message-pannel ul li {
+
+    float:left;
+    display: inline-block;
+    height:30px;
+    font-size:16px;
+    color:var(--black);
+    font-weight:400;
+
+}
+.message-pannel ul li i {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    display: block;
+    line-height:30px;
+}
+.message-pannel ul li a {
+    color:#4C535C;
+    padding:0 5px;
+    display:block;
+}
+.message-box {
+    height:150px;
+    /*display:flex;*/
+    /*flex:1;*/
+}
+.message-box textarea{
+    outline:none;
+    border:none;
+    width:100%;
+    font-size:14px;
+    height:150px;
+    padding:0 15px;
 }

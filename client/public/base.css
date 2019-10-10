@@ -59,7 +59,7 @@ a {
 }
 
 @font-face {
-    font-family:themify;src:url(/assets/themify.woff?-fvbane);src:url(../icons/themify/fonts/themify.eot?#iefix-fvbane) format('embedded-opentype'),url(/assets/themify.woff?-fvbane) format('woff'),url(/assets/themify.woff?-fvbane) format('truetype'),url(../icons/themify/fonts/themify.svg?-fvbane#themify) format('svg');font-weight:400;font-style:normal
+    font-family:themify;src:url(/client/public/fonts/themify.woff?-fvbane);src:url(../icons/themify/fonts/themify.eot?#iefix-fvbane) format('embedded-opentype'),url(/client/public/fonts/themify.woff?-fvbane) format('woff'),url(/client/public/fonts/themify.woff?-fvbane) format('truetype'),url(../icons/themify/fonts/themify.svg?-fvbane#themify) format('svg');font-weight:400;font-style:normal
 }[class*=" ti-"],[class^=ti-] {
      font-family: themify;
      speak: none;
