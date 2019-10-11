@@ -123,7 +123,7 @@
       "allow-pascal-case"
     ],
     "whitespace": [
-      true,
+      false,
       "check-branch",
       "check-decl",
       "check-operator",

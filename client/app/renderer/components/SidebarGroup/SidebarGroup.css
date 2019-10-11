@@ -28,7 +28,7 @@
 }
  .top input {
      float: left;
-     width: 188px;
+     width: calc(100% - 20px);
      height: 28px;
      padding: 0 15px;
      border: 1px solid var(--light);
@@ -41,13 +41,13 @@
  }
 
  .top  a {
-     display: block;
-     float: left;
      width: 28px;
      height: 28px;
-
-
+     color:var(--grey);
      -webkit-app-region:no-drag;
+     position:relative;
+     left:10px;
+     top:5px;
  }
 
 

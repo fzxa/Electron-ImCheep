@@ -9,10 +9,13 @@ export default class MainWindow {
   createMainWindow() {
     // @ts-ignore
     this.mainWindow = new BrowserWindow({
+      center: true,
       height: 700,
       width: 960,
+      minHeight:500,
+      minWidth:860,
       show: false,
-      movable: true,
+      // movable: true,
       titleBarStyle: 'hidden'
     });
   }
