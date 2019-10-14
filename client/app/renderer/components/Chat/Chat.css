@@ -134,6 +134,8 @@
     word-break: break-all;
     white-space: pre-wrap!important;
     word-wrap: break-word!important;
+
+    user-select:text;
 }
 .bubble {
     transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
