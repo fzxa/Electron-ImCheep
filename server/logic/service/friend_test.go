@@ -11,13 +11,12 @@ import (
 var ctx = imctx.NewContext(db.Factoty.GetSession())
 
 func TestFriendService_Add(t *testing.T) {
-	add := model.FriendAdd{
-		UserId:      1,
-		UserLabel:   "alber",
-		Friend:      2,
-		FriendLabel: "h",
+	add := model.Friend{
+		UserId:   1,
+		FriendId: 2,
+		Label:    "h",
 	}
-	err := FriendService.Add(ctx, add)
+	err := FriendService.Add(ctx, add.UserId, add.FriendId, add.Label)
 	if err != nil {
 		fmt.Println(err)
 	}
