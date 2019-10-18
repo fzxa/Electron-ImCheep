@@ -1,6 +1,7 @@
 package service
 
 import (
+	"Electron-ImCheep/server/connect"
 	"fmt"
 	"goim/logic/model"
 	"goim/public/lib"
@@ -41,7 +42,7 @@ func TestMessageService_SendToUser(t *testing.T) {
 
 	message := model.Message{
 		Id:             1,
-		MessageId:      int64(1),
+		MessageId:      int64(7),
 		UserId:         int64(3),
 		SenderType:     1,
 		SenderId:       3,
@@ -50,11 +51,15 @@ func TestMessageService_SendToUser(t *testing.T) {
 		ReceiverId:     2,
 		Type:           0,
 		Content:        "nsq message...",
-		Sequence:       1,
+		Sequence:       7,
 		SendTime:       lib.UnunixTime(0),
 	}
 	UserID := int64(3)
 	fmt.Println(message, UserID)
 	MessageService.SendToUser(ctx, UserID, &message)
 
+}
+
+func TestMessageService_ConsumerMsg(t *testing.T) {
+	connect.StartNsqConsumer()
 }
