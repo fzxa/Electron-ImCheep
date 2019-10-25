@@ -2,36 +2,28 @@ package service
 
 import (
 	"fmt"
-	"goim/logic/model"
-	"goim/public/logger"
 	"testing"
 )
 
-func TestUserService_Regist(t *testing.T) {
-	UserRegist := model.UserRegist{
-		Number:   "13911112222",
-		Nickname: "Fzxa",
-		Sex:      1,
-		Avatar:   "",
-		Password: "123456",
-	}
-	DeviceID := int64(1)
-	User, err := UserService.Regist(ctx, DeviceID, UserRegist)
-	logger.Sugar.Error(err)
-	fmt.Println(User, err)
-}
+// type Message struct {
+// 	ReceiverType pb.ReceiverType `json:"receiver_type"`
+// 	ReceiverId   int64           `json:"receiver_id"`
+// }
+
+// func TestMessageToJson(t *testing.T) {
+// 	message := model.SendMessage{
+// 		MessageBody: &pb.MessageBody{
+// 			MessageContent: &pb.MessageContent{},
+// 		},
+// 	}
+// 	bytes, err := jsoniter.Marshal(message)
+// 	fmt.Println(err)
+// 	fmt.Println(string(bytes))
+// }
 
 func TestUserService_Get(t *testing.T) {
-	UserID := int64(2)
-	UserInfo, err := UserService.Get(ctx, UserID)
-	fmt.Println(UserInfo, err)
-}
-
-func TestUserService_SignIn(t *testing.T) {
-	DeviceID := int64(1)
-	Number := "13911112222"
-	Password := "123456"
-	SignInResp, err := UserService.SignIn(ctx, DeviceID, Number, Password)
-	fmt.Println("Result: ", SignInResp)
-	logger.Sugar.Info(SignInResp, err)
+	appID := int64(1)
+	userID := int64(1)
+	user, err := UserService.Get(ctx, appID, userID)
+	fmt.Printf("userinfo is: %v  error is :%v", user, err)
 }

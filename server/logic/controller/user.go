@@ -1,41 +1,34 @@
 package controller
 
 import (
-	"goim/logic/model"
-	"goim/logic/service"
+	"gim/logic/model"
+	"gim/logic/service"
 )
 
 func init() {
 	g := Engine.Group("/user")
-	g.POST("", handler(UserController{}.Regist))
-	g.POST("/signin", handler(UserController{}.SignIn))
-	g.POST("/info", handler(UserController{}.UserInfo))
+	g.POST("", handler(UserController{}.Add))
+	g.GET("/info", handler(UserController{}.UserInfo))
+	g.GET("/test", handler(UserController{}.Test))
 }
 
 type UserController struct{}
 
-// Regist 用户注册
-func (UserController) Regist(c *context) {
-	var regist model.UserRegist
-	if c.bindJson(&regist) != nil {
+// Add 添加用户
+func (UserController) Add(c *context) {
+	var user model.User
+	if c.bindJson(&user) != nil {
 		return
 	}
-	c.response(service.UserService.Regist(Context(), c.deviceId, regist))
-}
-
-// SignIn 用户登录
-func (UserController) SignIn(c *context) {
-	var data struct {
-		Number   string `json:"number"`
-		Password string `json:"password"`
-	}
-	if c.bindJson(&data) != nil {
-		return
-	}
-	c.response(service.UserService.SignIn(Context(), c.deviceId, data.Number, data.Password))
+	user.AppId = c.appId
+	c.response(nil, service.UserService.Add(Context(), user))
 }
 
 // UserInfo 获取用户信息
 func (UserController) UserInfo(c *context) {
-	c.response(service.UserService.Get(Context(), c.userId))
+	c.response(service.UserService.Get(Context(), c.appId, c.userId))
+}
+
+func (UserController) Test(c *context) {
+	c.response(service.UserService.Get(Context(), int64(1), int64(1)))
 }

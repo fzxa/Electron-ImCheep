@@ -1,25 +1,23 @@
 package db
 
 import (
-	"goim/conf"
+	"gim/conf"
 
 	"github.com/astaxie/beego/logs"
 	"github.com/go-redis/redis"
 )
 
-var RedisClient *redis.Client
+var RedisCli *redis.Client
 
-const DeviceIdPre = "connect:device_id:"
-
-func init() {
+func InitDB() {
 	addr := conf.RedisIP
 
-	RedisClient = redis.NewClient(&redis.Options{
+	RedisCli = redis.NewClient(&redis.Options{
 		Addr: addr,
 		DB:   0,
 	})
 
-	_, err := RedisClient.Ping().Result()
+	_, err := RedisCli.Ping().Result()
 	if err != nil {
 		logs.Error("redis err ")
 		panic(err)

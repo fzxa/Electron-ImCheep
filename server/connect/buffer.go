@@ -9,23 +9,23 @@ var (
 	ErrNotEnough = errors.New("not enough")
 )
 
+// buffer 读缓冲区,每个tcp长连接对应一个读缓冲区
 type buffer struct {
-	reader io.Reader
-	buf    []byte
-	start  int
-	end    int
+	buf   []byte // 应用内缓存区
+	start int    // 有效字节开始位置
+	end   int    // 有效字节结束位置
 }
 
-func newBuffer(reader io.Reader, len int) buffer {
-	buf := make([]byte, len)
-	return buffer{reader, buf, 0, 0}
+// newBuffer 创建一个缓存区
+func newBuffer(bytes []byte) buffer {
+	return buffer{bytes, 0, 0}
 }
 
 func (b *buffer) len() int {
 	return b.end - b.start
 }
 
-// grow 将有用的字节前移
+// grow 将有效的字节前移
 func (b *buffer) grow() {
 	if b.start == 0 {
 		return
@@ -36,9 +36,9 @@ func (b *buffer) grow() {
 }
 
 // readFromReader 从reader里面读取数据，如果reader阻塞，会发生阻塞
-func (b *buffer) readFromReader() (int, error) {
+func (b *buffer) readFromReader(reader io.Reader) (int, error) {
 	b.grow()
-	n, err := b.reader.Read(b.buf[b.end:])
+	n, err := reader.Read(b.buf[b.end:])
 	if err != nil {
 		return n, err
 	}

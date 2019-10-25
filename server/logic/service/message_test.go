@@ -1,65 +1,80 @@
 package service
 
 import (
-	"Electron-ImCheep/server/connect"
 	"fmt"
-	"goim/logic/model"
-	"goim/public/lib"
-	"goim/public/logger"
+	"gim/logic/model"
+	"gim/public/pb"
 	"testing"
+	"time"
+
+	jsoniter "github.com/json-iterator/go"
 )
 
-func TestMessageService_Add(t *testing.T) {
-	message := model.Message{
-		UserId:         2,
-		SenderType:     1,
-		SenderId:       3,
-		SenderDeviceId: 3,
-		ReceiverType:   1,
-		ReceiverId:     2,
-		Type:           1,
-		Content:        "nihao...",
-		Sequence:       1,
+// var ctx = imctx.NewContext()
+
+// type Message struct {
+// 	ReceiverType pb.ReceiverType `json:"receiver_type"`
+// 	ReceiverId   int64           `json:"receiver_id"`
+// }
+
+// func TestMessageToJson(t *testing.T) {
+// 	message := model.SendMessage{
+// 		MessageBody: &pb.MessageBody{
+// 			MessageContent: &pb.MessageContent{},
+// 		},
+// 	}
+// 	bytes, err := jsoniter.Marshal(message)
+// 	fmt.Println(err)
+// 	fmt.Println(string(bytes))
+// }
+
+func TestMessageService_Send(t *testing.T) {
+
+	appID := int64(1)
+	userID := int64(1)
+	deviceID := int64(1)
+
+	Text := &pb.Text{Text: "hello"}
+
+	SendMessage := model.SendMessage{
+		ReceiverType: 1,
+		ReceiverId:   1,
+		ToUserIds:    make([]int64, 1),
+		MessageId:    "1",
+		SendTime:     int64(time.Now().Unix()),
+		MessageBody: model.MessageBody{
+			MessageType:    1,
+			MessageContent: "message..",
+		},
+		PbBody: &pb.MessageBody{
+			MessageType: 1,
+			MessageContent: &pb.MessageContent{
+				Content: &pb.MessageContent_Text{
+					Text: Text,
+				},
+			},
+		},
 	}
-	err := MessageService.Add(ctx, message)
-	logger.Sugar.Error(err)
+
+	MessageService.Send(ctx, appID, userID, deviceID, SendMessage)
 }
 
 func TestMessageService_ListByUserIdAndSequence(t *testing.T) {
-	messages, err := MessageService.ListByUserIdAndSequence(ctx, 1, 0)
-	if err != nil {
-		logger.Sugar.Error(err)
-		return
-	}
-	for _, message := range messages {
-		fmt.Println("message ::::: ", message)
-		fmt.Println(lib.FormatTime(message.CreateTime))
-	}
-}
-
-func TestMessageService_SendToUser(t *testing.T) {
-	fmt.Println("Test NSQ Message...")
-
-	message := model.Message{
-		Id:             1,
-		MessageId:      int64(7),
-		UserId:         int64(3),
-		SenderType:     1,
-		SenderId:       3,
-		SenderDeviceId: 3,
-		ReceiverType:   1,
-		ReceiverId:     2,
-		Type:           0,
-		Content:        "nsq message...",
-		Sequence:       7,
-		SendTime:       lib.UnunixTime(0),
-	}
-	UserID := int64(3)
-	fmt.Println(message, UserID)
-	MessageService.SendToUser(ctx, UserID, &message)
 
 }
 
-func TestMessageService_ConsumerMsg(t *testing.T) {
-	connect.StartNsqConsumer()
+func TestJson(t *testing.T) {
+	var st = struct {
+		Nickname string `json:"nickname"`
+	}{}
+
+	json := `{
+	"user_id":3,
+	"nickname":"h",
+	"sex":2,
+	"avatar_url":"no",
+	"extra":{"nickname":"hjkladsjfkl"}
+}`
+	jsoniter.Get([]byte(json), "extra").ToVal(&st)
+	fmt.Println(st)
 }

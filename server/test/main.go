@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"goim/test/client"
+	"gim/test/client"
 )
 
 func main() {
@@ -11,20 +11,9 @@ func main() {
 
 func TestClient() {
 	client := client.TcpClient{}
-	fmt.Println("input UserId,DeviceId,Token,SendSequence,SyncSequence")
-	fmt.Scanf("%d %d %s %d %d", &client.UserId, &client.DeviceId, &client.Token, &client.SendSequence, &client.SyncSequence)
+	fmt.Println("input AppId,UserId,DeviceId,SyncSequence")
+	fmt.Scanf("%d %d %d %d", &client.AppId, &client.UserId, &client.DeviceId, &client.Seq)
 	client.Start()
-	for {
-		client.SendMessage()
-	}
-}
+	select {}
 
-func TestDebugClient() {
-	client := client.TcpClient{}
-	fmt.Println("input UserId,DeviceId,Token,SendSequence,SyncSequence")
-	fmt.Scanf("%d %d %s %d %d", &client.UserId, &client.DeviceId, &client.Token, &client.SendSequence, &client.SyncSequence)
-	client.Start()
-	for {
-		client.SendMessage()
-	}
 }
