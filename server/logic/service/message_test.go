@@ -60,7 +60,7 @@ func TestMessageService_Send(t *testing.T) {
 }
 
 func TestMessageService_ListByUserIdAndSequence(t *testing.T) {
-
+	fmt.Printf("Time Now Type %t", time.Now().Add(24*30*time.Hour))
 }
 
 func TestJson(t *testing.T) {

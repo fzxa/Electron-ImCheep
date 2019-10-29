@@ -1,11 +1,55 @@
 import React, { Component } from 'react';
+
 import './Chat.css';
-export default class NavGroup extends Component {
+
+interface State {
+    socket?: any;
+    value?: string;
+    message?: string[];
+}
+
+export default class NavGroup extends Component<State> {
+
+    // state = {
+    //     socket: new WebSocket('ws://127.0.0.1:1234'),
+    // };
+    state = {
+        value: '1234'
+    };
+    constructor(props: any) {
+        // @ts-ignore
+        super(props);
+
+        this.handleSendMessage = this.handleSendMessage.bind(this);
+    }
+    componentDidMount(): void {
+        // this.state.socket.onopen = ()=> {
+        //     console.log('connected');
+        // };
+        // this.state.socket.onmessage = ()=> {
+        //     this.handleOnMessage();
+        // };
+    }
+
+    handleSendMessage(elem: any): void {
+
+        if(elem.keyCode === 13 && elem.target.value !== '') {
+            this.setState({
+                value:'5678'
+            });
+            // this.state.socket.send(elem.target.value);
+            elem.target.value = '';
+        }
+    }
+
+    handleOnMessage(e?: any ): void {
+    }
+
     render() {
         return (
             <div className="chat">
                 <div className="chat-header">
-                    <span> <span className="name">王振（Fzxa）</span></span>
+                    <span> <span className="name">王振（Fzxa) {this.state.value}</span></span>
                 </div>
                 <div className="chat-body">
                     <div className="chat-active" data-chat="person1">
@@ -64,9 +108,7 @@ export default class NavGroup extends Component {
                         </ul>
                     </div>
                     <div className="message-box">
-                        <textarea>
-                            111
-                        </textarea>
+                        <textarea onKeyDown={this.handleSendMessage}></textarea>
                     </div>
                 </div>
             </div>

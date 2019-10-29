@@ -1,12 +1,11 @@
 package client
 
 import (
-	"encoding/base64"
 	"gim/connect"
+	"gim/public/logger"
 	"gim/public/pb"
 	"gim/public/util"
 	"net"
-	"strconv"
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
@@ -45,19 +44,18 @@ func (c *TcpClient) Start() {
 }
 
 func (c *TcpClient) SignIn() {
-	str := strconv.FormatInt(c.AppId, 10) + ":" + strconv.FormatInt(c.UserId, 10) + ":" +
-		strconv.FormatInt(c.DeviceId, 10) + ":" + strconv.FormatInt(time.Now().Add(24*30*time.Hour).Unix(), 10)
-	token, err := util.RsaEncrypt([]byte(str), []byte(util.PublicKey))
+	token, err := util.GetToken(c.AppId, c.UserId, c.DeviceId, time.Now().Add(24*30*time.Hour).Unix(), util.PublicKey)
+	fmt.Printf("AppId %v,  UserId %v,  DeviceId %v,  Expire %v,  PublicKey is %v", c.AppId, c.UserId, c.DeviceId, time.Now().Add(24*30*time.Hour).Unix(), util.PublicKey)
+	fmt.Println(token)
 	if err != nil {
-		fmt.Println(err)
+		logger.Sugar.Error(err)
 		return
 	}
-
 	signIn := pb.SignInReq{
 		AppId:    c.AppId,
 		UserId:   c.UserId,
 		DeviceId: c.DeviceId,
-		Token:    base64.StdEncoding.EncodeToString(token),
+		Token:    token,
 	}
 
 	signInBytes, err := proto.Marshal(&signIn)
@@ -118,6 +116,7 @@ func (c *TcpClient) Receive() {
 }
 
 func (c *TcpClient) HandlePackage(pack connect.Package) error {
+	fmt.Printf("pack code is %v", pack.Code)
 	switch pb.PackageType(pack.Code) {
 	case pb.PackageType_PT_SIGN_IN_RESP:
 		resp := pb.SignInResp{}
