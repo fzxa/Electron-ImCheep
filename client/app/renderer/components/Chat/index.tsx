@@ -4,17 +4,22 @@ import './Chat.css';
 
 interface State {
     socket?: any;
-    value?: string;
     message?: string[];
 }
 
-export default class NavGroup extends Component<State> {
+interface Props {
+    foo?: string;
+}
 
-    // state = {
-    //     socket: new WebSocket('ws://127.0.0.1:1234'),
-    // };
+export default class NavGroup extends Component<Props, State> {
+
+    static defaultProps = {
+        foo:'wangzhen'
+    };
+
     state = {
-        value: '1234'
+        socket: new WebSocket('ws://127.0.0.1:1234'),
+        message: ['test']
     };
     constructor(props: any) {
         // @ts-ignore
@@ -23,33 +28,40 @@ export default class NavGroup extends Component<State> {
         this.handleSendMessage = this.handleSendMessage.bind(this);
     }
     componentDidMount(): void {
-        // this.state.socket.onopen = ()=> {
-        //     console.log('connected');
-        // };
-        // this.state.socket.onmessage = ()=> {
-        //     this.handleOnMessage();
-        // };
+        this.state.socket.onopen = ()=> {
+            console.log('connected');
+        };
+        this.state.socket.onmessage = (e: any)=> {
+            console.log('onmessage', e.data);
+            // @ts-ignore
+            this.state.message.push(e.data);
+            console.log(this.state.message);
+            // this.handleOnMessage();
+        };
     }
 
     handleSendMessage(elem: any): void {
 
         if(elem.keyCode === 13 && elem.target.value !== '') {
-            this.setState({
-                value:'5678'
-            });
-            // this.state.socket.send(elem.target.value);
+            this.state.socket.send(elem.target.value);
             elem.target.value = '';
         }
     }
 
-    handleOnMessage(e?: any ): void {
-    }
-
     render() {
+        const list = ()=> {
+            return(
+                <div>
+                    {Object.keys(this.state.message).map((key)=> {
+
+                    })}
+                </div>
+            );
+        };
         return (
             <div className="chat">
                 <div className="chat-header">
-                    <span> <span className="name">王振（Fzxa) {this.state.value}</span></span>
+                    <span> <span className="name">王振（Fzxa) {this.props.foo}</span></span>
                 </div>
                 <div className="chat-body">
                     <div className="chat-active" data-chat="person1">
@@ -80,6 +92,7 @@ export default class NavGroup extends Component<State> {
                         <div className="bubble me">
                             good bye
                         </div>
+                        {list()}
                     </div>
 
                 </div>
