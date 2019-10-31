@@ -19,7 +19,7 @@ export default class NavGroup extends Component<Props, State> {
 
     state = {
         socket: new WebSocket('ws://127.0.0.1:1234'),
-        message: ['test']
+        message: ['test','你好']
     };
     constructor(props: any) {
         // @ts-ignore
@@ -27,15 +27,23 @@ export default class NavGroup extends Component<Props, State> {
 
         this.handleSendMessage = this.handleSendMessage.bind(this);
     }
+    componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>, snapshot?: any): void {
+        console.log('update');
+    }
+
     componentDidMount(): void {
         this.state.socket.onopen = ()=> {
             console.log('connected');
         };
         this.state.socket.onmessage = (e: any)=> {
-            console.log('onmessage', e.data);
-            // @ts-ignore
+            // console.log('onmessage', e.data);
             this.state.message.push(e.data);
-            console.log(this.state.message);
+            this.setState({
+                message: this.state.message,
+            },()=> {
+                console.log(this.state.message);
+            });
+
             // this.handleOnMessage();
         };
     }
@@ -49,15 +57,8 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     render() {
-        const list = ()=> {
-            return(
-                <div>
-                    {Object.keys(this.state.message).map((key)=> {
-
-                    })}
-                </div>
-            );
-        };
+        console.log('类型为',typeof this.state.message);
+        console.log(this.state.message);
         return (
             <div className="chat">
                 <div className="chat-header">
@@ -92,7 +93,12 @@ export default class NavGroup extends Component<Props, State> {
                         <div className="bubble me">
                             good bye
                         </div>
-                        {list()}
+                        {
+                            this.state.message.map((item, index) => {
+                                console.log(item, index);
+                                return <div className="bubble me" key={index}>{item}</div>;
+                            })
+                        }
                     </div>
 
                 </div>
