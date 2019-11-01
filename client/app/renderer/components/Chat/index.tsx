@@ -19,7 +19,7 @@ export default class NavGroup extends Component<Props, State> {
 
     state = {
         socket: new WebSocket('ws://127.0.0.1:1234'),
-        message: ['test','你好']
+        message: ['test']
     };
     constructor(props: any) {
         // @ts-ignore
