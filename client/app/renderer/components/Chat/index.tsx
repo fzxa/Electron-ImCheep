@@ -51,13 +51,13 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     handleChatSwiper(): void {
-        // const ChatSwiper = new Swiper('chat-active', {
-        //     direction: 'vertical',
-        //     scrollbar: {
-        //        el: '.chat-scrollbar',
-        //     }
-        // });
-        // console.log(ChatSwiper);
+        const ChatSwiper = new Swiper('.chat-body', {
+            direction: 'vertical',
+            scrollbar: {
+               el: '.chat-scrollbar',
+            }
+        });
+        console.log(ChatSwiper);
     }
 
     handleSendMessage(elem: any): boolean {
@@ -116,9 +116,8 @@ export default class NavGroup extends Component<Props, State> {
                                 return <div className="bubble me" key={index}>{item}</div>;
                             })
                         }
-                       <div className="chat-scrollbar"></div>
                     </div>
-
+                    <div className="chat-scrollbar"></div>
                 </div>
 
                 <div className="chat-footer">
