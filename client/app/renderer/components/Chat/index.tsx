@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Swiper from 'swiper';
 import './Chat.css';
 
 interface State {
@@ -14,7 +14,7 @@ interface Props {
 export default class NavGroup extends Component<Props, State> {
 
     static defaultProps = {
-        foo:'wangzhen'
+        foo:''
     };
 
     state = {
@@ -26,6 +26,7 @@ export default class NavGroup extends Component<Props, State> {
         super(props);
 
         this.handleSendMessage = this.handleSendMessage.bind(this);
+        console.log(Swiper);
     }
     componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>, snapshot?: any): void {
         console.log('update');
@@ -46,14 +47,30 @@ export default class NavGroup extends Component<Props, State> {
 
             // this.handleOnMessage();
         };
+        this.handleChatSwiper();
     }
 
-    handleSendMessage(elem: any): void {
+    handleChatSwiper(): void {
+        // const ChatSwiper = new Swiper('chat-active', {
+        //     direction: 'vertical',
+        //     scrollbar: {
+        //        el: '.chat-scrollbar',
+        //     }
+        // });
+        // console.log(ChatSwiper);
+    }
+
+    handleSendMessage(elem: any): boolean {
 
         if(elem.keyCode === 13 && elem.target.value !== '') {
             this.state.socket.send(elem.target.value);
             elem.target.value = '';
+            // elem.target.returnValue = false;
+            // elem.target.focus();
+            elem.preventDefault();
+            // elem.target.returnValue = false;
         }
+        return false;
     }
 
     render() {
@@ -99,6 +116,7 @@ export default class NavGroup extends Component<Props, State> {
                                 return <div className="bubble me" key={index}>{item}</div>;
                             })
                         }
+                       <div className="chat-scrollbar"></div>
                     </div>
 
                 </div>
@@ -127,7 +145,7 @@ export default class NavGroup extends Component<Props, State> {
                         </ul>
                     </div>
                     <div className="message-box">
-                        <textarea onKeyDown={this.handleSendMessage}></textarea>
+                        <textarea autoFocus onKeyDown={this.handleSendMessage}/>
                     </div>
                 </div>
             </div>
