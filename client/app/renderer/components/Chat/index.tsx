@@ -55,8 +55,10 @@ export default class NavGroup extends Component<Props, State> {
             direction: 'vertical',
             scrollbar: {
                el: '.chat-scrollbar',
+               draggable: true,
             }
         });
+        ChatSwiper.updateSize();
         console.log(ChatSwiper);
     }
 

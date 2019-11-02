@@ -170,5 +170,6 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "__npminstall_done": false
 }
