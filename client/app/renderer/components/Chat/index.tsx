@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Swiper from 'swiper';
 import './Chat.css';
 
 interface State {
@@ -26,7 +25,7 @@ export default class NavGroup extends Component<Props, State> {
         super(props);
 
         this.handleSendMessage = this.handleSendMessage.bind(this);
-        console.log(Swiper);
+
     }
     componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>, snapshot?: any): void {
         console.log('update');
@@ -51,15 +50,6 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     handleChatSwiper(): void {
-        const ChatSwiper = new Swiper('.chat-body', {
-            direction: 'vertical',
-            scrollbar: {
-               el: '.chat-scrollbar',
-               draggable: true,
-            }
-        });
-        ChatSwiper.updateSize();
-        console.log(ChatSwiper);
     }
 
     handleSendMessage(elem: any): boolean {
