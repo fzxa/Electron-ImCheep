@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import 'iscroll';
 import './Chat.css';
 
 interface State {
     socket?: any;
     message?: string[];
+    IScroll?: object;
 }
 
 interface Props {
@@ -46,10 +48,21 @@ export default class NavGroup extends Component<Props, State> {
 
             // this.handleOnMessage();
         };
-        this.handleChatSwiper();
+        this.handleScrollBar();
     }
 
-    handleChatSwiper(): void {
+    handleScrollBar(): void {
+
+        const scroll = new IScroll('.chat-body', {
+            scrollbars: true,
+            mouseWheel : true,
+            interactiveScrollbars: true,
+            shrinkScrollbars: 'scale',
+            fadeScrollbars: true
+        });
+        this.setState({
+            IScroll:scroll
+        });
     }
 
     handleSendMessage(elem: any): boolean {
