@@ -53,17 +53,27 @@
     font-weight: 600;
 }
 
+/*.chat-body {*/
+    /*width: 100%;*/
+    /*-webkit-box-flex: 1;*/
+    /*-webkit-flex: 1;*/
+    /*-moz-box-flex: 1;*/
+    /*-ms-flex: 1;*/
+    /*flex: 1;*/
+    /*!*margin: 20px 0;*!*/
+    /*overflow:hidden;*/
+    /*outline: none;*/
+    /*-webkit-user-select:text;*/
+/*}*/
+
 .chat-body {
-    width: 100%;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -moz-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    /*margin: 20px 0;*/
-    overflow:hidden;
-    outline: none;
-    -webkit-user-select:text;
+    position:absolute;
+    z-index:1;
+    top:60px;
+    left:0;
+    bottom:180px;
+    width:100%;
+    overflow: hidden;
 }
 .chat-footer {
     /* border-top: 2px solid #e1e1e1; */
@@ -71,21 +81,32 @@
     border-top:1px solid var(--light);
     background:var(--white);
     min-height: 180px;
+    position:absolute;
+    bottom:0;
 }
 
 
+/*.chat-active {*/
+    /*width:100%;*/
+    /*display: flex;*/
+    /*position: relative;*/
+    /*overflow: hidden;*/
+    /*padding: 0 20px 0;*/
+    /*border-width: 0 1px 0 0;*/
+    /*border-style: solid;*/
+    /*border-color: var(--light);*/
+    /*height: calc(100% - 10px);*/
+    /*justify-content: flex-end;*/
+    /*flex-direction: column;*/
+/*}*/
+
 .chat-active {
+
+}
+.chat-active li {
+    display:inline-block;
     width:100%;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    padding: 0 20px 0;
-    border-width: 0 1px 0 0;
-    border-style: solid;
-    border-color: var(--light);
-    height: calc(100% - 10px);
-    justify-content: flex-end;
-    flex-direction: column;
+    max-height:50px;
 }
 
 .conversation-start {
@@ -123,7 +144,7 @@
 
 .bubble {
     font-size: 14px;
-    position: relative;
+    /*position: relative;*/
     display: inline-block;
     clear: both;
     margin-bottom: 8px;
@@ -136,6 +157,7 @@
     word-wrap: break-word!important;
 
     user-select:text;
+    display:inline-block;
 }
 .bubble {
     transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);

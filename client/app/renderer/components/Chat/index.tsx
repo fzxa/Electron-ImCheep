@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import 'iscroll';
+import IScroll from 'iscroll';
 import './Chat.css';
 
 interface State {
     socket?: any;
     message?: string[];
-    IScroll?: object;
+    IScroll?: any;
 }
 
 interface Props {
@@ -20,8 +20,10 @@ export default class NavGroup extends Component<Props, State> {
 
     state = {
         socket: new WebSocket('ws://127.0.0.1:1234'),
-        message: ['test']
+        message: ['test'],
+        IScroll : null,
     };
+
     constructor(props: any) {
         // @ts-ignore
         super(props);
@@ -44,6 +46,10 @@ export default class NavGroup extends Component<Props, State> {
                 message: this.state.message,
             },()=> {
                 console.log(this.state.message);
+                // @ts-ignore
+                this.state.IScroll.refresh();
+                // @ts-ignore
+                this.state.IScroll.scrollTo(0, this.state.IScroll.maxScrollY, 0);
             });
 
             // this.handleOnMessage();
@@ -52,16 +58,18 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     handleScrollBar(): void {
-
-        const scroll = new IScroll('.chat-body', {
+        // console.log('iscroll is ',IScroll);
+        // @ts-ignore
+        const scroll = new IScroll('#wrapper', {
             scrollbars: true,
             mouseWheel : true,
             interactiveScrollbars: true,
-            shrinkScrollbars: 'scale',
+            // shrinkScrollbars: 'scale',
             fadeScrollbars: true
         });
+        scroll.scrollTo(0,scroll.maxScrollY, 0);
         this.setState({
-            IScroll:scroll
+            IScroll: scroll
         });
     }
 
@@ -86,43 +94,104 @@ export default class NavGroup extends Component<Props, State> {
                 <div className="chat-header">
                     <span> <span className="name">王振（Fzxa) {this.props.foo}</span></span>
                 </div>
-                <div className="chat-body">
-                    <div className="chat-active" data-chat="person1">
-                        <div className="conversation-start">
-                            <span>Today, 6:48 AM</span>
-                        </div>
-                        <div className="bubble you">
-                            How are you,
-                        </div>
-                        <div className="bubble me">
-                            Im fine, Think you ,and you?
-                        </div>
-                        <div className="bubble you">
-                            Im fint too
-                        </div>
-                        <div className="bubble me">
-                            good bye
-                        </div>
-                        <div className="bubble you">
-                            How are you,
-                        </div>
-                        <div className="bubble me">
-                            Im fine, Think you ,and you?
-                        </div>
-                        <div className="bubble you">
-                            Im fint too
-                        </div>
-                        <div className="bubble me">
-                            good bye
-                        </div>
+                <div className="chat-body" id="wrapper">
+                    <ul className="chat-active">
+                        {/*<div className="conversation-start">*/}
+                            {/*<span>Today, 6:48 AM</span>*/}
+                        {/*</div>*/}
+                        <li>
+                            <div className="bubble you">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
+                        <li>
+                            <div className="bubble me">
+                                How are you,
+                            </div>
+                        </li>
                         {
                             this.state.message.map((item, index) => {
                                 console.log(item, index);
-                                return <div className="bubble me" key={index}>{item}</div>;
+                                return <li key={index}><div className="bubble me">{item}</div></li>;
                             })
                         }
-                    </div>
-                    <div className="chat-scrollbar"></div>
+                    </ul>
+
                 </div>
 
                 <div className="chat-footer">
