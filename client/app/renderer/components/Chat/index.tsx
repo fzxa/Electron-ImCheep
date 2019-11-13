@@ -58,13 +58,13 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     handleScrollBar(): void {
-        // console.log('iscroll is ',IScroll);
+        console.log('iscroll is ',IScroll);
         // @ts-ignore
         const scroll = new IScroll('#wrapper', {
             scrollbars: true,
             mouseWheel : true,
             interactiveScrollbars: true,
-            // shrinkScrollbars: 'scale',
+            shrinkScrollbars: 'scale',
             fadeScrollbars: true
         });
         scroll.scrollTo(0,scroll.maxScrollY, 0);
