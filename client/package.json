@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@types/iscroll": "^5.2.2",
+    "@types/webrtc": "^0.0.25",
     "autoprefixer": "7.1.6",
     "babel-jest": "^22.1.0",
     "babel-loader": "^7.1.2",

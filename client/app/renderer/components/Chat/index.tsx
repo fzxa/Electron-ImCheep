@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import IScroll from 'iscroll';
+// import IScroll from 'iscroll';
 import './Chat.css';
 
 interface State {
@@ -47,9 +47,9 @@ export default class NavGroup extends Component<Props, State> {
             },()=> {
                 console.log(this.state.message);
                 // @ts-ignore
-                this.state.IScroll.refresh();
-                // @ts-ignore
-                this.state.IScroll.scrollTo(0, this.state.IScroll.maxScrollY, 0);
+                // this.state.IScroll.refresh();
+                // // @ts-ignore
+                // this.state.IScroll.scrollTo(0, this.state.IScroll.maxScrollY, 0);
             });
 
             // this.handleOnMessage();
@@ -58,19 +58,19 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     handleScrollBar(): void {
-        console.log('iscroll is ',IScroll);
-        // @ts-ignore
-        const scroll = new IScroll('#wrapper', {
-            scrollbars: true,
-            mouseWheel : true,
-            interactiveScrollbars: true,
-            shrinkScrollbars: 'scale',
-            fadeScrollbars: true
-        });
-        scroll.scrollTo(0,scroll.maxScrollY, 0);
-        this.setState({
-            IScroll: scroll
-        });
+        // console.log('iscroll is ',IScroll);
+        // // @ts-ignore
+        // const scroll = new IScroll('#wrapper', {
+        //     scrollbars: true,
+        //     mouseWheel : true,
+        //     interactiveScrollbars: true,
+        //     shrinkScrollbars: 'scale',
+        //     fadeScrollbars: true
+        // });
+        // scroll.scrollTo(0,scroll.maxScrollY, 0);
+        // this.setState({
+        //     IScroll: scroll
+        // });
     }
 
     handleSendMessage(elem: any): boolean {
