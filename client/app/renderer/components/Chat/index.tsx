@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 // import IScroll from 'iscroll';
+import 'webrtc-adapter';
+// import IScroll from 'iscroll';
 import './Chat.css';
 
 interface State {
@@ -36,15 +38,16 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     componentDidMount(): void {
-        this.state.socket.onopen = ()=> {
+        // console.log(IScroll);
+        this.state.socket.onopen = () => {
             console.log('connected');
         };
-        this.state.socket.onmessage = (e: any)=> {
+        this.state.socket.onmessage = (e: any) => {
             // console.log('onmessage', e.data);
             this.state.message.push(e.data);
             this.setState({
                 message: this.state.message,
-            },()=> {
+            }, () => {
                 console.log(this.state.message);
                 // @ts-ignore
                 // this.state.IScroll.refresh();
@@ -55,6 +58,30 @@ export default class NavGroup extends Component<Props, State> {
             // this.handleOnMessage();
         };
         this.handleScrollBar();
+
+        // @ts-ignore
+        // this.state.IVideo = document.getElementById('stream');
+        navigator.getUserMedia({audio: true, video: {width: 200, height: 300}},
+            (stream) => {
+                const video: any = document.getElementById('stream');
+                console.log(stream);
+                console.log(video);
+
+                // @ts-ignore
+                video.srcObject = stream;
+                // @ts-ignore
+                video.onloadedmetadata = (e) => {
+                    console.log('onloadmetadata', e);
+                    // @ts-ignore
+                    video.play();
+                };
+            },
+            (err) => {
+                console.log('The following error occurred: ' + err.name);
+            }
+        );
+        // const userMedia = navigator.mediaDevices.getUserMedia({audio: true, video: true});
+
     }
 
     handleScrollBar(): void {
@@ -94,6 +121,9 @@ export default class NavGroup extends Component<Props, State> {
                 <div className="chat-header">
                     <span> <span className="name">王振（Fzxa) {this.props.foo}</span></span>
                 </div>
+                <video id="stream" autoPlay controls style={{'zIndex':99, 'height':'300px', 'width':'200px'}}>
+                    steam...
+                </video>
                 <div className="chat-body" id="wrapper">
                     <ul className="chat-active">
                         {/*<div className="conversation-start">*/}
