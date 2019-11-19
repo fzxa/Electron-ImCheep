@@ -38,6 +38,7 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     componentDidMount(): void {
+        console.log(webkitRTCPeerConnection);
         // console.log(IScroll);
         this.state.socket.onopen = () => {
             console.log('connected');
