@@ -38,10 +38,10 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     componentDidMount(): void {
-        console.log(webkitRTCPeerConnection);
+        // console.log(webkitRTCPeerConnection);
         // console.log(IScroll);
         this.state.socket.onopen = () => {
-            console.log('connected');
+            console.log('connected successful');
         };
         this.state.socket.onmessage = (e: any) => {
             // console.log('onmessage', e.data);
@@ -62,25 +62,25 @@ export default class NavGroup extends Component<Props, State> {
 
         // @ts-ignore
         // this.state.IVideo = document.getElementById('stream');
-        navigator.getUserMedia({audio: true, video: {width: 200, height: 300}},
-            (stream) => {
-                const video: any = document.getElementById('stream');
-                console.log(stream);
-                console.log(video);
-
-                // @ts-ignore
-                video.srcObject = stream;
-                // @ts-ignore
-                video.onloadedmetadata = (e) => {
-                    console.log('onloadmetadata', e);
-                    // @ts-ignore
-                    video.play();
-                };
-            },
-            (err) => {
-                console.log('The following error occurred: ' + err.name);
-            }
-        );
+        // navigator.getUserMedia({audio: true, video: {width: 200, height: 300}},
+        //     (stream) => {
+        //         const video: any = document.getElementById('stream');
+        //         console.log(stream);
+        //         console.log(video);
+        //
+        //         // @ts-ignore
+        //         video.srcObject = stream;
+        //         // @ts-ignore
+        //         video.onloadedmetadata = (e) => {
+        //             console.log('onloadmetadata', e);
+        //             // @ts-ignore
+        //             video.play();
+        //         };
+        //     },
+        //     (err) => {
+        //         console.log('The following error occurred: ' + err.name);
+        //     }
+        // );
         // const userMedia = navigator.mediaDevices.getUserMedia({audio: true, video: true});
 
     }
@@ -115,16 +115,13 @@ export default class NavGroup extends Component<Props, State> {
     }
 
     render() {
-        console.log('类型为',typeof this.state.message);
-        console.log(this.state.message);
+        // console.log('类型为',typeof this.state.message);
+        // console.log(this.state.message);
         return (
             <div className="chat">
                 <div className="chat-header">
                     <span> <span className="name">王振（Fzxa) {this.props.foo}</span></span>
                 </div>
-                <video id="stream" autoPlay controls style={{'zIndex':99, 'height':'300px', 'width':'200px'}}>
-                    steam...
-                </video>
                 <div className="chat-body" id="wrapper">
                     <ul className="chat-active">
                         {/*<div className="conversation-start">*/}
