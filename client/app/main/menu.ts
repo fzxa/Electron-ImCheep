@@ -1,13 +1,19 @@
-import {app, Menu, MenuItemConstructorOptions } from 'electron';
+import { Menu, MenuItemConstructorOptions } from 'electron';
 
-const isMac: boolean = process.platform === 'darwin';
-console.log('is mac', isMac);
-console.log(app.getName());
+// const isMac: boolean = process.platform === 'darwin';
+// console.log('is mac', isMac);
+
 const mainMenuTemplate: MenuItemConstructorOptions[]  = [
   {
-    label: app.getName(),
+    label: '吱声',
     submenu: [
-
+      { label: '关于', role: 'about' },
+      {
+        label: '偏好设置',
+        click: ()=> {
+          console.log('setting...');
+        }
+      },
   ]},
   {
     label: '编辑',

@@ -7,7 +7,6 @@ export default class MainWindow {
   }
 
   createMainWindow() {
-    // @ts-ignore
     this.mainWindow = new BrowserWindow({
       center: true,
       height: 700,
