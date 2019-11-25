@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './NavGroup.css';
+// import Counter from '../../containers/counter';
+// import {Route} from 'react-router';
+import { NavLink } from 'react-router-dom';
 
-export default class SidebarGroup extends Component {
+export default class NavGroup extends Component {
     render() {
         return (
             <nav className="navigation">
@@ -11,34 +14,35 @@ export default class SidebarGroup extends Component {
                 <div className="nav-group">
                     <ul>
                         <li>
-                            <a data-navigation-target="chats" className="active" href="#">
+                            {/*className="active"*/}
+                            <NavLink to="/chat">
                                 <i className="ti-comment-alt"></i>
-                            </a>
+                            </NavLink>
                         </li>
                         <li>
-                            <a data-navigation-target="friends" href="#" className="notifiy_badge">
+                            <NavLink  to="/tree" className="notifiy_badge">
                                 <i className="ti-user"></i>
-                            </a>
+                            </NavLink>
                         </li>
-                        <li data-navigation-target="favorites" className="brackets">
-                            <a href="#">
+                        <li className="brackets">
+                            <NavLink to="/home">
                                 <i className="ti-star"></i>
-                            </a>
+                            </NavLink>
                         </li>
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#editProfileModal">
+                            <NavLink to="/#" data-toggle="modal">
                                 <i className="ti-pencil"></i>
-                            </a>
+                            </NavLink>
                         </li>
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#settingModal">
+                            <NavLink to="/#" data-toggle="modal">
                                 <i className="ti-settings"></i>
-                            </a>
+                            </NavLink>
                         </li>
                         <li>
-                            <a href="#">
+                            <NavLink to="/#">
                                 <i className="ti-power-off"></i>
-                            </a>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

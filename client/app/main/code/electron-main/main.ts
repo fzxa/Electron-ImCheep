@@ -58,12 +58,12 @@
 
 // new Electron().init();
 
-import { app, dialog } from 'electron';
+import { dialog } from 'electron';
 import { setUnexpectedErrorHandler } from "../../base/common/errors";
 
-class ExpectedError extends Error {
-  readonly isExpected = true;
-}
+// class ExpectedError extends Error {
+//   readonly isExpected = true;
+// }
 
 
 
@@ -80,11 +80,6 @@ class CodeMain {
     }
 
     private async startup(args: object): Promise<void> {
-        this.doStartUp();
-    }
-
-
-    private async doStartUp(): void {
         try {
 
         }catch (e) {

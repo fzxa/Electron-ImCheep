@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 // import IScroll from 'iscroll';
 import 'webrtc-adapter';
 // import IScroll from 'iscroll';
 import './Chat.css';
+
+
+// @ts-ignore
+import NavGroup from '../NavGroup';
+import SidebarGroup from '../SidebarGroup'
 
 interface State {
     socket?: any;
@@ -14,7 +19,7 @@ interface Props {
     foo?: string;
 }
 
-export default class NavGroup extends Component<Props, State> {
+export default class Chat extends Component<Props, State> {
 
     static defaultProps = {
         foo:''
@@ -118,9 +123,12 @@ export default class NavGroup extends Component<Props, State> {
         // console.log('类型为',typeof this.state.message);
         // console.log(this.state.message);
         return (
+            <Fragment>
+            <NavGroup />
+            <SidebarGroup />
             <div className="chat">
                 <div className="chat-header">
-                    <span> <span className="name">王振（Fzxa) {this.props.foo}</span></span>
+                    <span> <span className="name">（Fzxa) {this.props.foo}</span></span>
                 </div>
                 <div className="chat-body" id="wrapper">
                     <ul className="chat-active">
@@ -175,6 +183,7 @@ export default class NavGroup extends Component<Props, State> {
                     </div>
                 </div>
             </div>
+            </Fragment>
         );
     }
 }

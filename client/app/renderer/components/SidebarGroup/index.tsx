@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './SidebarGroup.css';
-export default class NavGroup extends Component {
+export default class SidebarGroup extends Component {
     render() {
         // @ts-ignore
         return (
