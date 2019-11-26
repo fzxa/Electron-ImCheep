@@ -20,7 +20,7 @@ export default class NavGroup extends Component {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink  to="/tree" className="notifiy_badge">
+                            <NavLink  to="/counter" className="notifiy_badge">
                                 <i className="ti-user"></i>
                             </NavLink>
                         </li>

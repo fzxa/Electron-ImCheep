@@ -1,13 +1,11 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 // import IScroll from 'iscroll';
 import 'webrtc-adapter';
 // import IScroll from 'iscroll';
 import './Chat.css';
 
-
-// @ts-ignore
-import NavGroup from '../NavGroup';
-import SidebarGroup from '../SidebarGroup'
+// import NavGroup from '../NavGroup';
+// import SidebarGroup from '../SidebarGroup'
 
 interface State {
     socket?: any;
@@ -123,9 +121,6 @@ export default class Chat extends Component<Props, State> {
         // console.log('类型为',typeof this.state.message);
         // console.log(this.state.message);
         return (
-            <Fragment>
-            <NavGroup />
-            <SidebarGroup />
             <div className="chat">
                 <div className="chat-header">
                     <span> <span className="name">（Fzxa) {this.props.foo}</span></span>
@@ -183,7 +178,6 @@ export default class Chat extends Component<Props, State> {
                     </div>
                 </div>
             </div>
-            </Fragment>
         );
     }
 }
