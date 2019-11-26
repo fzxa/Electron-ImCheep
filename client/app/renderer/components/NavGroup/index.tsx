@@ -9,13 +9,13 @@ export default class NavGroup extends Component {
         return (
             <nav className="navigation">
                 <div className="nav-avatar">
-                    <img src="/image/dog.png" />
+                    <img src="/image/avatar.png" />
                 </div>
                 <div className="nav-group">
                     <ul>
                         <li>
                             {/*className="active"*/}
-                            <NavLink to="/chat">
+                            <NavLink to="/box">
                                 <i className="ti-comment-alt"></i>
                             </NavLink>
                         </li>
@@ -30,17 +30,17 @@ export default class NavGroup extends Component {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/#" data-toggle="modal">
+                            <NavLink to="/chat" data-toggle="modal">
                                 <i className="ti-pencil"></i>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/#" data-toggle="modal">
+                            <NavLink to="/ChatBox" data-toggle="modal">
                                 <i className="ti-settings"></i>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/#">
+                            <NavLink to="/ChatBox">
                                 <i className="ti-power-off"></i>
                             </NavLink>
                         </li>

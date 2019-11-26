@@ -12,7 +12,7 @@
 .sidebar-group {
     float: left;
     /*width: 20.6%;*/
-    min-width:252px;
+    max-width:252px;
     height: 100%;
     border: 1px solid var(--light);
     background-color: var(--white);
@@ -93,7 +93,8 @@
     width: 40px;
     height: 40px;
     margin-right: 12px;
-    border-radius: 5px;
+    border-radius: 2px;
+    border:1px solid #efefef;
 }
 
 .people .person .name {
@@ -122,6 +123,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     color: var(--grey);
+    max-weight:100px;
 }
 
 .people .person.active, .people .person:hover {

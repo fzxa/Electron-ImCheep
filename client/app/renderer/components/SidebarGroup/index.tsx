@@ -11,40 +11,16 @@ export default class SidebarGroup extends Component {
                 </div>
                 <ul className="people">
                     <li className="person active" data-chat="person1">
-                        <img src="/image/dog.png" alt="" />
-                        <span className="name">Fzxa</span>
-                        <span className="time">2:09 PM</span>
-                        <span className="preview">Hello!...</span>
+                        <img src="/image/avatar.png" alt="" />
+                        <span className="name">Zanewang(王振)</span>
+                        <span className="time">1分钟前</span>
+                        <span className="preview">暂时没有对vscode二次开发</span>
                     </li>
-                    <li className="person" data-chat="person2">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Zanewang</span>
-                            <span className="time">1:44 PM</span>
-                        <span className="preview">Hello!...</span>
-                    </li>
-                    <li className="person" data-chat="person3">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Zanewang</span>
-                            <span className="time">2:09 PM</span>
-                            <span className="preview">Hello!...</span>
-                    </li>
-                    <li className="person" data-chat="person4">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Zanewang</span>
-                            <span className="time">2:09 PM</span>
-                        <span className="preview">Hello!...</span>
-                    </li>
-                    <li className="person" data-chat="person5">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Zanewang</span>
-                            <span className="time">2:09 PM</span>
-                        <span className="preview">Hello!...</span>
-                    </li>
-                    <li className="person" data-chat="person6">
-                        <img src="/image/dog.png" alt="" />
-                            <span className="name">Zanewang</span>
-                            <span className="time">2:09 PM</span>
-                        <span className="preview">Hello!...</span>
+                    <li className="person" data-chat="person1">
+                        <img src="/image/avatar.png" alt="" />
+                        <span className="name">Zanewang(王振)</span>
+                        <span className="time">1分钟前</span>
+                        <span className="preview">暂时没有对vscode二次开发</span>
                     </li>
                 </ul>
             </div>

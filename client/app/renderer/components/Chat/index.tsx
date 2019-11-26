@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import IScroll from 'iscroll';
-import 'webrtc-adapter';
+// import 'webrtc-adapter';
 // import IScroll from 'iscroll';
 import './Chat.css';
 
@@ -123,7 +123,7 @@ export default class Chat extends Component<Props, State> {
         return (
             <div className="chat">
                 <div className="chat-header">
-                    <span> <span className="name">（Fzxa) {this.props.foo}</span></span>
+                    <span> <span className="name">zanewang(王振) {this.props.foo}</span></span>
                 </div>
                 <div className="chat-body" id="wrapper">
                     <ul className="chat-active">
