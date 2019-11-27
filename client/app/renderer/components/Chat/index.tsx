@@ -127,25 +127,25 @@ export default class Chat extends Component<Props, State> {
                 </div>
                 <div className="chat-body" id="wrapper">
                     <ul className="chat-active">
-                        {/*<div className="conversation-start">*/}
-                            {/*<span>Today, 6:48 AM</span>*/}
-                        {/*</div>*/}
+                        <div className="conversation-start">
+                            <span>4月30日 下午5:01</span>
+                        </div>
                         <li>
-                            <div className="bubble you">
-                                How are you,
-                            </div>
+                            <div className="bubble you">系统繁忙，请稍后重试账号余额不足充值</div>
                         </li>
                         <li>
-                            <div className="bubble me">
-                                How are you,
-                            </div>
+                            <div className="bubble me">好的，收到</div>
                         </li>
+                        <div className="conversation-start">
+                            <span>4月30日 下午5:01</span>
+                        </div>
                         {
                             this.state.message.map((item, index) => {
                                 console.log(item, index);
                                 return <li key={index}><div className="bubble me">{item}</div></li>;
                             })
                         }
+
                     </ul>
 
                 </div>
