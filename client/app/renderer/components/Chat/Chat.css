@@ -209,15 +209,15 @@
     -webkit-transform: rotate(29deg) skew(-35deg);
     transform: rotate(29deg) skew(-35deg);
 }
-.bubble.you:before {
-    left: -3px;
-    background-color: #eceff1;
-}
+/*.bubble.you:before {*/
+    /*left: -3px;*/
+    /*background-color: #eceff1;*/
+/*}*/
 
-.bubble.me:before {
-    right: -3px;
-    background-color: #B7E2FF;
-}
+/*.bubble.me:before {*/
+    /*right: -3px;*/
+    /*background-color: #B7E2FF;*/
+/*}*/
 
 /*write*/
 .write {

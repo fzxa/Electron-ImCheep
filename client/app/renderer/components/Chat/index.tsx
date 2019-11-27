@@ -128,7 +128,7 @@ export default class Chat extends Component<Props, State> {
                 <div className="chat-body" id="wrapper">
                     <ul className="chat-active">
                         <div className="conversation-start">
-                            <span>4月30日 下午5:01</span>
+                            <span>11月30日 下午5:01</span>
                         </div>
                         <li>
                             <div className="bubble you">系统繁忙，请稍后重试账号余额不足充值</div>
@@ -137,7 +137,7 @@ export default class Chat extends Component<Props, State> {
                             <div className="bubble me">好的，收到</div>
                         </li>
                         <div className="conversation-start">
-                            <span>4月30日 下午5:01</span>
+                            <span>11月30日 下午5:01</span>
                         </div>
                         {
                             this.state.message.map((item, index) => {
