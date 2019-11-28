@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './SidebarGroup.css';
-export default class SidebarGroup extends Component {
+import './SessionList.css';
+export default class SessionList extends Component {
     render() {
-        // @ts-ignore
         return (
             <div className="sidebar-group">
                 <div className="top">
@@ -10,15 +9,15 @@ export default class SidebarGroup extends Component {
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
                 <ul className="people">
-                    <li className="person active" data-chat="person1">
+                    <li className="person active">
                         <img src="/image/avatar.png" alt="" />
-                        <span className="name">Zanewang(王振)</span>
-                        <span className="time">1分钟前</span>
+                        <span className="name">zanewang(王振)</span>
+                        <span className="time">刚刚</span>
                         <span className="preview">暂时没有对vscode二次开发</span>
                     </li>
-                    <li className="person" data-chat="person1">
+                    <li className="person">
                         <img src="/image/avatar.png" alt="" />
-                        <span className="name">Zanewang(王振)</span>
+                        <span className="name">zanewang(王振)</span>
                         <span className="time">1分钟前</span>
                         <span className="preview">暂时没有对vscode二次开发</span>
                     </li>

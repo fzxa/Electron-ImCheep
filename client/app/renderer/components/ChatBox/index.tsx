@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import SidebarGropup from '../SidebarGroup';
+import SessionList from '../SessionList';
 import Chat from '../Chat';
 export default class ChatBox extends Component {
   render() {
     return (
       <React.Fragment>
-        <SidebarGropup />
+        <SessionList />
         <Chat />
       </React.Fragment>
     );
