@@ -6,7 +6,7 @@ import Counter from '../containers/counter';
 import NavGroup from '../components/NavGroup';
 // import SidebarGroup from '../components/SidebarGroup';
 
-import ChatBox from '../containers/sessionChat';
+import SessionChat from '../containers/session';
 import Chat from '../components/Chat';
 // import SidebarGroup from '../components/SidebarGroup';
 
@@ -20,7 +20,7 @@ export default function Routes() {
         <Route path="/counter" component={Counter}></Route>
         <Route path="/chat" compontne={Chat}></Route>
         <Route path="/home" component={Home}></Route>
-        <Route path='/box' component={ChatBox} />
+        <Route path='/box' component={SessionChat} />
       </Switch>
     </Fragment>
   );
