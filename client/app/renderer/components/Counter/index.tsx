@@ -9,7 +9,7 @@ interface CounterProps {
 export default class Counter extends Component<CounterProps> {
   render() {
     const { count, increment, decrement } = this.props;
-
+    console.log('Counter render..',this.props)
     return (
       <div>
         <div>Counter: {count}</div>

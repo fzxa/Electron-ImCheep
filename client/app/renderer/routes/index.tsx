@@ -6,7 +6,7 @@ import Counter from '../containers/counter';
 import NavGroup from '../components/NavGroup';
 // import SidebarGroup from '../components/SidebarGroup';
 
-import ChatBox from '../components/ChatBox';
+import ChatBox from '../containers/sessionChat';
 import Chat from '../components/Chat';
 // import SidebarGroup from '../components/SidebarGroup';
 
