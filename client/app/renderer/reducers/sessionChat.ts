@@ -1,15 +1,18 @@
-import { SESSION_CHAT } from '../actions/session/sessionType';
 import { counterActions } from '../actions/session';
+import { SessionState } from "../types";
+import {SESSION} from "../actions/session/sessionType";
 
-export default function switchSessionChat(state = {}, action: counterActions):any {
-    console.log('switchSessionChat：',action, SESSION_CHAT);
+const INITIAL_STATE = {
+    count: 1
+};
+
+export default function Session(state = INITIAL_STATE, action: counterActions):SessionState {
     switch (action.type) {
-        case SESSION_CHAT:
-            console.log("session_chat");
-            return state;
-         break;
+        case SESSION:
+            return {
+                count: state.count + 1
+            }
         default:
             return state;
-         break;
     }
 }

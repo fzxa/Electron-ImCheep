@@ -1,15 +1,15 @@
-import {SESSION_CHAT} from "./sessionType";
+import {SESSION} from "./sessionType";
 
-export type counterActions = session_chat;
+export type counterActions = Session;
 
 //session chat
-interface session_chat {
-  type: SESSION_CHAT,
+interface Session {
+  type: SESSION,
 }
 
-export function session_chat(): session_chat {
+export function session(): Session {
   return {
-    type: SESSION_CHAT
+    type: SESSION
   }
 }
 

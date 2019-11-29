@@ -11,3 +11,12 @@ export interface CounterState {
 export interface StoreState {
   counter: CounterState;
 }
+
+
+export interface SessionState {
+  count: number;
+}
+
+export interface SessionStoreState {
+  session: SessionState;
+}

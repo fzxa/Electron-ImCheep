@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import SessionList from '../SessionList';
 import Chat from '../Chat';
 
-
-interface Props {
-    switchSessionChst: () => void;
+interface SessionChatProps {
+    count: number;
+    session: () => void;
 }
 
-export default class ChatBox extends Component<Props> {
+export default class ChatBox extends Component<SessionChatProps> {
   render() {
-    const {switchSessionChst} = this.props;
-    console.log('chatbox ', switchSessionChst);
+      const {session, count} = this.props;
+      console.log('chatbox render',this.props);
     return (
       <React.Fragment>
-          <p onClick={switchSessionChst}>session chat</p>
-        <SessionList />
+          <p onClick={session}>session{count}</p>
+        <SessionList session_chat={session} count={1}/>
         <Chat />
       </React.Fragment>
     );

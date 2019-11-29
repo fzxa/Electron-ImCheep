@@ -1,12 +1,18 @@
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import SessionList from '../components/SessionList';
-import { counterActions, session_chat } from '../actions/session';
+// import ChatBox from '../components/ChatBox';
+import { counterActions, session } from '../actions/session';
+import {SessionStoreState} from "../types";
+import ChatBox from "../components/ChatBox";
 
 
-
+function mapStateToProps(state: SessionStoreState) {
+  return {
+    count: state.session.count
+  };
+}
 function mapDispatchToProps(dispatch: Dispatch<counterActions>) {
-  return bindActionCreators({session_chat}, dispatch);
+  return bindActionCreators({session}, dispatch);
 }
 
-export default connect(mapDispatchToProps)(SessionList);
+export default connect(mapStateToProps, mapDispatchToProps)(ChatBox);
