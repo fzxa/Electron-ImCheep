@@ -141,7 +141,6 @@ export default class Chat extends Component<Props, State> {
                         </div>
                         {
                             this.state.message.map((item, index) => {
-                                console.log(item, index);
                                 return <li key={index}><div className="bubble me">{item}</div></li>;
                             })
                         }

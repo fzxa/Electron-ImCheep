@@ -10,11 +10,9 @@ interface SessionChatProps {
 export default class ChatBox extends Component<SessionChatProps> {
   render() {
       const {session, count} = this.props;
-      console.log('chatbox render',this.props);
     return (
       <React.Fragment>
-          <p onClick={session}>session{count}</p>
-        <SessionList session_chat={session} count={1}/>
+        <SessionList session={session} count={count}/>
         <Chat />
       </React.Fragment>
     );
