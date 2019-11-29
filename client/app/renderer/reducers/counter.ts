@@ -7,6 +7,7 @@ const INITIAL_STATE = {
 };
 
 export default function counter(state = INITIAL_STATE, action: counterActions): CounterState {
+  console.log('action...',action)
   switch (action.type) {
     case INCREMENT:
       return {

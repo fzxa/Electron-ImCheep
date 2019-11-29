@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './SessionList.css';
+
 export default class SessionList extends Component {
     render() {
         return (
