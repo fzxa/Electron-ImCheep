@@ -10,10 +10,11 @@ import SessionChat from '../containers/session';
 import Chat from '../components/Chat';
 // import SidebarGroup from '../components/SidebarGroup';
 
+import Organization from '../containers/organization';
+
 export default function Routes() {
   return (
     <Fragment>
-
 
       <NavGroup />
       <Switch>
@@ -21,6 +22,7 @@ export default function Routes() {
         <Route path="/chat" compontne={Chat}></Route>
         <Route path="/home" component={Home}></Route>
         <Route path='/box' component={SessionChat} />
+        <Route path='/organization' ccomponentom={Organization} />
       </Switch>
     </Fragment>
   );
