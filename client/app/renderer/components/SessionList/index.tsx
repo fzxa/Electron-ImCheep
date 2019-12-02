@@ -4,12 +4,13 @@ import './SessionList.css';
 interface SessionChatProps {
     count: number;
     session: () => void;
+    switch_chat: ()=> void;
 }
 
 export default class SessionList extends Component<SessionChatProps> {
 
     render() {
-        const {session, count} = this.props;
+        const {session, count, switch_chat} = this.props;
         console.log('SessionList render',session, count);
         return (
             <div className="sidebar-group">
@@ -18,7 +19,7 @@ export default class SessionList extends Component<SessionChatProps> {
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
                 <ul className="people">
-                    <li className="person active" onClick={session}>
+                    <li className="person" onClick={switch_chat}>
                         <img src="/image/avatar.png" alt="" />
                         <span className="name">zanewang(王振)</span>
                         <span className="time">刚刚</span>
