@@ -3,24 +3,23 @@ import { SessionState } from "../types";
 import {SESSION, SWITCH_CHAT} from "../actions/session/sessionType";
 
 const INITIAL_STATE = {
-    count: 1,
-    switchChat: 'state'
+    ChatIndex: 0,
+    MessageList: []
 };
 
 export default function Session(state = INITIAL_STATE, action: counterActions):SessionState {
     switch (action.type) {
         case SESSION:
-            return {
-                count: state.count + 1,
-                switchChat: 'wangzhen',
-            }
+           state
         case SWITCH_CHAT:
-            console.log('switch chat...');
             return {
-                count: state.count - 1,
-                switchChat: 'nihao',
+                ChatIndex: 0,
+                MessageList: []
             }
         default:
-            return state;
+            return {
+                ChatIndex: 0,
+                MessageList: []
+            }
     }
 }

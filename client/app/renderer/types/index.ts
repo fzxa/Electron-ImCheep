@@ -14,8 +14,8 @@ export interface StoreState {
 
 
 export interface SessionState {
-  count: number;
-  switchChat: string;
+  ChatIndex: number;
+  MessageList: [];
 }
 
 export interface SessionStoreState {

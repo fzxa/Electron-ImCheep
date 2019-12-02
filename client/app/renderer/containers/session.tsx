@@ -7,7 +7,8 @@ import ChatBox from "../components/ChatBox";
 
 function mapStateToProps(state: SessionStoreState) {
   return {
-    count: state.session.count
+    ChatIndex: state.session.ChatIndex,
+    MessageList: state.session.MessageList
   };
 }
 function mapDispatchToProps(dispatch: Dispatch<counterActions>) {

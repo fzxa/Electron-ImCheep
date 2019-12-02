@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import './SessionList.css';
 
 interface SessionChatProps {
-    count: number;
-    session: () => void;
-    switch_chat: ()=> void;
+    ChatIndex: number,
+    MessageList: [],
+    switch_chat: ()=>void,
 }
 
 export default class SessionList extends Component<SessionChatProps> {
 
     render() {
-        const {session, count, switch_chat} = this.props;
-        console.log('SessionList render',session, count);
+        const {ChatIndex, MessageList, switch_chat } = this.props;
+        console.log(ChatIndex, MessageList, switch_chat);
+
         return (
             <div className="sidebar-group">
                 <div className="top">
@@ -19,18 +20,14 @@ export default class SessionList extends Component<SessionChatProps> {
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
                 <ul className="people">
+                    
                     <li className="person" onClick={switch_chat}>
                         <img src="/image/avatar.png" alt="" />
                         <span className="name">zanewang(王振)</span>
                         <span className="time">刚刚</span>
                         <span className="preview">暂时没有对vscode二次开发</span>
                     </li>
-                    <li className="person" onClick={session}>
-                        <img src="/image/avatar.png" alt="" />
-                        <span className="name">zanewang(王振)</span>
-                        <span className="time">1分钟前</span>
-                        <span className="preview">暂时没有对vscode二次开发</span>
-                    </li>
+
                 </ul>
             </div>
         );
