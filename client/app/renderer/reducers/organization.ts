@@ -18,6 +18,8 @@ const INITIAL_STATE = {
     Department: "",
 };
 
+
+
 export default function Organization(state = INITIAL_STATE, action: counterActions):OrganizationState {
     switch (action.type) {
         case GET_ORGANIZATION:
