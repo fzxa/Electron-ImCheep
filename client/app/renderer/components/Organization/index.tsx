@@ -35,8 +35,8 @@ export default class Organization extends Component<OrganizationProps> {
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
                 <DirectoryTree onSelect={this.onSelect} onExpand={this.onExpand}>
-                    <TreeNode title="公司组织架构" key="0-0">
-                        <TreeNode title="leaf 0-0" key="0-0-0" isLeaf />
+                    <TreeNode title="组织架构" key="0-0">
+                        <TreeNode icon={<img src='http://www.e3ol.com/biography/pic/id/240/284.jpg' className='organization-avatar' />} title='诸葛亮(zhugeliang)' key="0-0-0" />
                         <TreeNode title="leaf 0-1" key="0-0-1" isLeaf />
                     </TreeNode>
                     <TreeNode title="parent 1" key="0-1">
