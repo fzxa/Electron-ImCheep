@@ -21,6 +21,7 @@ const INITIAL_STATE = {
 export default function Organization(state = INITIAL_STATE, action: counterActions):OrganizationState {
     switch (action.type) {
         case GET_ORGANIZATION:
+            console.log('org...')
             console.log(userArr);
             return state;
         case GET_ORGANIZATION_INFO:

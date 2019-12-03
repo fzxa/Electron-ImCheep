@@ -22,7 +22,7 @@ export default function Routes() {
         <Route path="/chat" compontne={Chat}></Route>
         <Route path="/home" component={Home}></Route>
         <Route path='/box' component={SessionChat} />
-        <Route path='/organization' ccomponentom={Organization} />
+        <Route path='/organization' component={Organization} />
       </Switch>
     </Fragment>
   );

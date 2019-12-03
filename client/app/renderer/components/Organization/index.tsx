@@ -7,21 +7,19 @@ interface OrganizationProps {
 }
 
 export default class Organization extends Component<OrganizationProps> {
+    componentWillMount(): void {
+        const { get_organization } = this.props;
+        console.log(get_organization);
+    }
 
     render() {
-        const { get_organization, get_organization_info } = this.props;
-        console.log(get_organization, get_organization_info);
-        console.log(Organization);
         return (
-            <div className="organization">
-                organization,.....
-                123123123123123
-                123123123123123
-                123123123123123
-                123123123123123
-                123123123123123
-                123123123123123
-                123123123123123
+            <div className="sidebar-group">
+                <div className="top">
+                    <input type="search" placeholder="搜索" />
+                    <a href="javascript:;" className="ti-plus"></a>
+                </div>
+
             </div>
         );
     }

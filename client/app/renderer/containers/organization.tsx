@@ -2,7 +2,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { counterActions, get_organization, get_organization_info } from '../actions/organization';
 import {OrganizationStoreState} from "../types";
-import Organization from "../components/Organization";
+import Organization from '../components/Organization'
 
 
 function mapStateToProps(state: OrganizationStoreState) {
