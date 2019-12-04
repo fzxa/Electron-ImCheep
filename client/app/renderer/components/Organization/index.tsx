@@ -4,7 +4,11 @@ import Tree from 'antd/es/tree';
 import 'antd/dist/antd.css';
 import { OrganizationState } from "../../types";
 
-interface OrganizationProps {
+interface InterfaceState {
+    Organization? : OrganizationState[]
+}
+
+interface InterfaceProps {
     OrganizationInfo: OrganizationState;
     Organization: Array<OrganizationState>;
     get_organization: ()=> void;
@@ -13,25 +17,35 @@ interface OrganizationProps {
 
 const { TreeNode, DirectoryTree } = Tree;
 
-export default class Organization extends Component<OrganizationProps> {
+export default class Organization extends Component<InterfaceProps, InterfaceState> {
 
-    componentWillMount(): void {
-        const {get_organization} = this.props;
-        get_organization();
-        console.log('componentWillMount....',this.state);
+    public constructor(props: InterfaceProps) {
+        super(props);
+        const { Organization } = this.props;
+        this.state = {
+            Organization: Organization
+        }
     }
 
-    onSelect = (keys: any, event: any) => {
+    public componentDidMount(): void {
+        const {get_organization} = this.props;
+        get_organization();
+    }
+
+    private onSelect = (keys: any, event: any) => {
         console.log('Trigger Select', keys, event);
     };
 
-    onExpand = () => {
+    private onExpand = () => {
         console.log('Trigger Expand');
     };
 
-    render() {
-        const { get_organization,  Organization} = this.props;
-        console.log('Organization', Organization, this.props);
+
+    public render() {
+        console.log('render....')
+        const { Organization } = this.state;
+        let User:any = Organization
+
         return (
             <React.Fragment>
             <div className="sidebar-group">
@@ -40,9 +54,15 @@ export default class Organization extends Component<OrganizationProps> {
                     <input type="search" placeholder="搜索" />
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
-                <a onClick={get_organization}>organization....</a>
-                {JSON.stringify(Organization)}
-                <p>test   {JSON.stringify(Organization)}</p>
+
+
+                {User.Organization.map((value:any, index:number)=> {
+                    console.log(index);
+                    {value.FullName} <br />
+                    console.log(value.FullName)
+                })}
+
+
                 <DirectoryTree onSelect={this.onSelect} onExpand={this.onExpand}>
                     <TreeNode title="组织架构" key="0-0">
                         <TreeNode icon={<img src='http://www.e3ol.com/biography/pic/id/240/284.jpg' className='organization-avatar' />} title='诸葛亮(zhugeliang)' key="0-0-0" />
