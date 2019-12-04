@@ -25,7 +25,7 @@ export default class NavGroup extends Component {
                             </NavLink>
                         </li>
                         <li className="brackets">
-                            <NavLink to="/home">
+                            <NavLink to="/counter">
                                 <i className="ti-star"></i>
                             </NavLink>
                         </li>

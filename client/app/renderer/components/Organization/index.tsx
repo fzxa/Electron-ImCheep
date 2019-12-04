@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Organization.css';
 import Tree from 'antd/es/tree';
 import 'antd/dist/antd.css';
-import {OrganizationState} from "../../types";
+import { OrganizationState } from "../../types";
 
 interface OrganizationProps {
     OrganizationInfo: OrganizationState;
@@ -15,6 +15,11 @@ const { TreeNode, DirectoryTree } = Tree;
 
 export default class Organization extends Component<OrganizationProps> {
 
+    componentWillMount(): void {
+        const {get_organization} = this.props;
+        get_organization();
+        console.log('componentWillMount....',this.state);
+    }
 
     onSelect = (keys: any, event: any) => {
         console.log('Trigger Select', keys, event);
@@ -26,7 +31,9 @@ export default class Organization extends Component<OrganizationProps> {
 
     render() {
         const { get_organization,  Organization} = this.props;
+        console.log('Organization', Organization, this.props);
         return (
+            <React.Fragment>
             <div className="sidebar-group">
 
                 <div className="top">
@@ -47,6 +54,8 @@ export default class Organization extends Component<OrganizationProps> {
                     </TreeNode>
                 </DirectoryTree>
             </div>
+
+            </React.Fragment>
         );
     }
 }

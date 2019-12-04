@@ -42,7 +42,7 @@ function GetOrganization(): OrganizationState[] {
 export default function Organization(state= INITIAL_STATE, action: counterActions):OrganizationStoreState {
     switch (action.type) {
         case GET_ORGANIZATION:
-            console.log('action...', action.type)
+            console.log('action...', action.type);
             return {
                 Organization: GetOrganization()
             };
