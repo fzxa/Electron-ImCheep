@@ -4,11 +4,11 @@ import Tree from 'antd/es/tree';
 import 'antd/dist/antd.css';
 import { OrganizationState } from "../../types";
 
-interface InterfaceState {
-    Organization? : OrganizationState[]
+interface initialState {
+
 }
 
-interface InterfaceProps {
+interface initialProps {
     OrganizationInfo: OrganizationState;
     Organization: Array<OrganizationState>;
     get_organization: ()=> void;
@@ -17,15 +17,9 @@ interface InterfaceProps {
 
 const { TreeNode, DirectoryTree } = Tree;
 
-export default class Organization extends Component<InterfaceProps, InterfaceState> {
+export default class Organization extends Component<initialProps, initialState> {
 
-    public constructor(props: InterfaceProps) {
-        super(props);
-        const { Organization } = this.props;
-        this.state = {
-            Organization: Organization
-        }
-    }
+    state: Readonly<initialState>
 
     public componentDidMount(): void {
         const {get_organization} = this.props;
@@ -42,9 +36,8 @@ export default class Organization extends Component<InterfaceProps, InterfaceSta
 
 
     public render() {
-        console.log('render....')
-        const { Organization } = this.state;
-        let User:any = Organization
+        const { Organization, get_organization } = this.props;
+        let User:any = Organization;
 
         return (
             <React.Fragment>
@@ -54,12 +47,14 @@ export default class Organization extends Component<InterfaceProps, InterfaceSta
                     <input type="search" placeholder="搜索" />
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
+                <a onClick={get_organization}>Get data</a> <br />
 
-
-                {User.Organization.map((value:any, index:number)=> {
-                    console.log(index);
-                    {value.FullName} <br />
-                    console.log(value.FullName)
+                {User.Organization.length > 0 && User.Organization.map((value: OrganizationState, index: number)=>{
+                    return(
+                        <React.Fragment>
+                            {index} {value.FullName}
+                        </React.Fragment>
+                    );
                 })}
 
 
