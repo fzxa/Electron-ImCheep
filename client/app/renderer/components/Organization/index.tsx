@@ -5,6 +5,7 @@ import 'antd/dist/antd.css';
 import {OrganizationState} from "../../types";
 
 interface OrganizationProps {
+    OrganizationInfo: OrganizationState;
     Organization: Array<OrganizationState>;
     get_organization: ()=> void;
     get_organization_info: ()=>void;
@@ -34,6 +35,7 @@ export default class Organization extends Component<OrganizationProps> {
                 </div>
                 <a onClick={get_organization}>organization....</a>
                 {JSON.stringify(Organization)}
+                <p>test   {JSON.stringify(Organization)}</p>
                 <DirectoryTree onSelect={this.onSelect} onExpand={this.onExpand}>
                     <TreeNode title="组织架构" key="0-0">
                         <TreeNode icon={<img src='http://www.e3ol.com/biography/pic/id/240/284.jpg' className='organization-avatar' />} title='诸葛亮(zhugeliang)' key="0-0-0" />
