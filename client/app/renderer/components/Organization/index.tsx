@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import './Organization.css';
 import Tree from 'antd/es/tree';
 import 'antd/dist/antd.css';
+import {OrganizationState} from "../../types";
 
 interface OrganizationProps {
+    Organization: Array<OrganizationState>;
     get_organization: ()=> void;
     get_organization_info: ()=>void;
 }
@@ -11,12 +13,7 @@ interface OrganizationProps {
 const { TreeNode, DirectoryTree } = Tree;
 
 export default class Organization extends Component<OrganizationProps> {
-    componentWillMount(): void {
-        const { get_organization } = this.props;
-        console.log('get organization..',get_organization);
-        let userArr = get_organization();
-        console.log(userArr);
-    }
+
 
     onSelect = (keys: any, event: any) => {
         console.log('Trigger Select', keys, event);
@@ -27,6 +24,7 @@ export default class Organization extends Component<OrganizationProps> {
     };
 
     render() {
+        const { get_organization,  Organization} = this.props;
         return (
             <div className="sidebar-group">
 
@@ -34,6 +32,8 @@ export default class Organization extends Component<OrganizationProps> {
                     <input type="search" placeholder="搜索" />
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
+                <a onClick={get_organization}>organization....</a>
+                {JSON.stringify(Organization)}
                 <DirectoryTree onSelect={this.onSelect} onExpand={this.onExpand}>
                     <TreeNode title="组织架构" key="0-0">
                         <TreeNode icon={<img src='http://www.e3ol.com/biography/pic/id/240/284.jpg' className='organization-avatar' />} title='诸葛亮(zhugeliang)' key="0-0-0" />

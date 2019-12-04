@@ -7,18 +7,7 @@ import Organization from '../components/Organization'
 
 function mapStateToProps(state: OrganizationStoreState) {
   return {
-    ID: state.organization.ID,
-    FullName: state.organization.FullName,
-    PhoneNumber: state.organization.PhoneNumber,
-    Landline: state.organization.Landline,
-    PinYin: state.organization.PhoneNumber,
-    Level: state.organization.Level,
-    Position: state.organization.Position,
-    Workstation: state.organization.Workstation,
-    Sex: state.organization.Sex,
-    Avatar: state.organization.Avatar,
-    Profile: state.organization.Profile,
-    Department: state.organization.Department,
+    Organization: state.Organization
   };
 }
 function mapDispatchToProps(dispatch: Dispatch<counterActions>) {
