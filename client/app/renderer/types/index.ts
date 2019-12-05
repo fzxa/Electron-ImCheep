@@ -41,3 +41,7 @@ export interface OrganizationState {
 export interface OrganizationStoreState {
     Organization: Array<OrganizationState>
 }
+
+export interface OrganizationListState {
+  [propName: string]: Object[];
+}

@@ -36,7 +36,7 @@ export default class Organization extends Component<initialProps, initialState> 
 
 
     public render() {
-        const { Organization, get_organization } = this.props;
+        const { Organization } = this.props;
         let User:any = Organization;
 
         return (
@@ -47,27 +47,52 @@ export default class Organization extends Component<initialProps, initialState> 
                     <input type="search" placeholder="搜索" />
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
-                <a onClick={get_organization}>Get data</a> <br />
 
-                {User.Organization.length > 0 && User.Organization.map((value: OrganizationState, index: number)=>{
-                    return(
-                        <React.Fragment key={index}>
-                            {index} {value.FullName}
-                        </React.Fragment>
-                    );
-                })}
+                {console.log(User)}
+
+                {/*{User.map((value: any, index: number)=>{*/}
+                    {/*return(*/}
+                        {/*<React.Fragment key={index}>*/}
+                           {/*{JSON.stringify(value)}*/}
+                        {/*</React.Fragment>*/}
+                    {/*);*/}
+                {/*})}*/}
 
 
-                <DirectoryTree onSelect={this.onSelect} onExpand={this.onExpand}>
-                    <TreeNode title="组织架构" key="0-0">
-                        <TreeNode icon={<img src='http://www.e3ol.com/biography/pic/id/240/284.jpg' className='organization-avatar' />} title='诸葛亮(zhugeliang)' key="0-0-0" />
-                        <TreeNode title="leaf 0-1" key="0-0-1" isLeaf />
-                    </TreeNode>
-                    <TreeNode title="parent 1" key="0-1">
-                        <TreeNode title="leaf 1-0" key="0-1-0" isLeaf />
-                        <TreeNode title="leaf 1-1" key="0-1-1" isLeaf />
-                    </TreeNode>
+                <DirectoryTree  onSelect={this.onSelect} onExpand={this.onExpand}>
+
+                    {
+                        Object.keys(User).map((value:string, index: number, array:string[])=>{
+                            console.log(array)
+
+                            const Org:Array<string> = User[value];
+                            return (
+                                <TreeNode key={value} title={value}>
+                                    {
+                                         Object.keys(Org).map((v:string, i:number, a:string[])=>{
+                                             let INFO:[] = Org[v];
+                                             return(
+                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} title={INFO['name']+' ('+INFO['courtesyName']+')'} key={i.toString()}></TreeNode>
+                                             )
+                                         })
+                                    }
+                                </TreeNode>
+                            )
+                        })
+                    }
+
                 </DirectoryTree>
+
+                {/*<DirectoryTree onSelect={this.onSelect} onExpand={this.onExpand}>*/}
+                    {/*<TreeNode title="组织架构" key="0-0">*/}
+                        {/*<TreeNode icon={<img src='http://www.e3ol.com/biography/pic/id/240/284.jpg' className='organization-avatar' />} title='诸葛亮(zhugeliang)' key="0-0-0" />*/}
+                        {/*<TreeNode title="leaf 0-1" key="0-0-1" isLeaf />*/}
+                    {/*</TreeNode>*/}
+                    {/*<TreeNode title="parent 1" key="0-1">*/}
+                        {/*<TreeNode title="leaf 1-0" key="0-1-0" isLeaf />*/}
+                        {/*<TreeNode title="leaf 1-1" key="0-1-1" isLeaf />*/}
+                    {/*</TreeNode>*/}
+                {/*</DirectoryTree>*/}
             </div>
 
             </React.Fragment>
