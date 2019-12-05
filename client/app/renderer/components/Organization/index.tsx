@@ -48,8 +48,6 @@ export default class Organization extends Component<initialProps, initialState> 
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
 
-                {console.log(User)}
-
                 {/*{User.map((value: any, index: number)=>{*/}
                     {/*return(*/}
                         {/*<React.Fragment key={index}>*/}
@@ -72,7 +70,7 @@ export default class Organization extends Component<initialProps, initialState> 
                                          Object.keys(Org).map((v:string, i:number, a:string[])=>{
                                              let INFO:[] = Org[v];
                                              return(
-                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} title={INFO['name']+' ('+INFO['courtesyName']+')'} key={i.toString()}></TreeNode>
+                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} title={ INFO['name']+' ('+INFO['courtesyName'] +')'} key={i.toString()}></TreeNode>
                                              )
                                          })
                                     }
