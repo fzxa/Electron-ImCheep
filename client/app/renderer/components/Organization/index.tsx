@@ -51,7 +51,7 @@ export default class Organization extends Component<initialProps, initialState> 
 
                 {User.Organization.length > 0 && User.Organization.map((value: OrganizationState, index: number)=>{
                     return(
-                        <React.Fragment>
+                        <React.Fragment key={index}>
                             {index} {value.FullName}
                         </React.Fragment>
                     );

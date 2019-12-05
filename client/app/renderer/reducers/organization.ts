@@ -1,7 +1,7 @@
 import { counterActions } from '../actions/organization';
 import { OrganizationState, OrganizationStoreState} from '../types';
 import { GET_ORGANIZATION } from '../actions/organization/organizationType';
-// import userArr from './users';
+import UserArr from './users';
 
 const INITIAL_ITEM = {
     ID:0,
@@ -22,12 +22,30 @@ const INITIAL_STATE = {
     Organization:[INITIAL_ITEM],
 }
 
+interface Organization {
+    [propName: string]: Object[];
+}
 
 function CreateOrganization(ID:number, FullName: string, PhoneNumber: string, Landline: string, PinYin: string, Level: string, Position: string, Workstation: string, Sex: string, Avatar: string, Profile:string, Department: string): OrganizationState {
     return { ID, FullName, PhoneNumber, Landline, PinYin, Level, Position, Workstation, Sex, Avatar, Profile, Department };
 }
 
 function GetOrganization(): OrganizationState[] {
+
+    let devoteForArr: Array<string> = ['蜀','吴','袁绍','东汉','在野','董卓','西晋','刘表','起义军','少数民族','刘璋','袁术','其他'];
+    let Org:any = {};
+    UserArr.map((value: any, index: number)=>{
+        devoteForArr.map((devote: any, i:number)=>{
+            if(value.devoteFor == devote) {
+                if(Org[value.devoteFor] == undefined) {
+                    Org[value.devoteFor] = [];
+                }
+                Org[value.devoteFor].push(value);
+            }
+        });
+    });
+    console.log(Org)
+
     return [
         CreateOrganization(1, '王振','13693067204', '837402', 'wangzhen','T10','高级工程师','web开发','1','1.jpg','hello','简介')
     ];
