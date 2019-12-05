@@ -71,12 +71,14 @@
     z-index:1;
     top:60px;
 
-    bottom:186px;
+    bottom:200px;
     /*width:100%;*/
     overflow: hidden;
     width: calc(100% - 252px - 66px);
     -webkit-user-select:text;
     outline:none;
+    overflow:hidden;
+
 }
 .chat-footer {
     /* border-top: 2px solid #e1e1e1; */

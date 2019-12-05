@@ -3,6 +3,7 @@ import './Organization.css';
 import Tree from 'antd/es/tree';
 import 'antd/dist/antd.css';
 import { OrganizationState } from "../../types";
+import Profile from '../Profile';
 
 interface initialState {
 
@@ -48,14 +49,6 @@ export default class Organization extends Component<initialProps, initialState> 
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
 
-                {/*{User.map((value: any, index: number)=>{*/}
-                    {/*return(*/}
-                        {/*<React.Fragment key={index}>*/}
-                           {/*{JSON.stringify(value)}*/}
-                        {/*</React.Fragment>*/}
-                    {/*);*/}
-                {/*})}*/}
-
 
                 <DirectoryTree  onSelect={this.onSelect} onExpand={this.onExpand}>
 
@@ -70,7 +63,7 @@ export default class Organization extends Component<initialProps, initialState> 
                                          Object.keys(Org).map((v:string, i:number, a:string[])=>{
                                              let INFO:[] = Org[v];
                                              return(
-                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} title={ INFO['name']+' ('+INFO['courtesyName'] +')'} key={i.toString()}></TreeNode>
+                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} title={ INFO['name']+' ('+INFO['courtesyName'] +')'} key={INFO['uid'].toString()}></TreeNode>
                                              )
                                          })
                                     }
@@ -81,18 +74,8 @@ export default class Organization extends Component<initialProps, initialState> 
 
                 </DirectoryTree>
 
-                {/*<DirectoryTree onSelect={this.onSelect} onExpand={this.onExpand}>*/}
-                    {/*<TreeNode title="组织架构" key="0-0">*/}
-                        {/*<TreeNode icon={<img src='http://www.e3ol.com/biography/pic/id/240/284.jpg' className='organization-avatar' />} title='诸葛亮(zhugeliang)' key="0-0-0" />*/}
-                        {/*<TreeNode title="leaf 0-1" key="0-0-1" isLeaf />*/}
-                    {/*</TreeNode>*/}
-                    {/*<TreeNode title="parent 1" key="0-1">*/}
-                        {/*<TreeNode title="leaf 1-0" key="0-1-0" isLeaf />*/}
-                        {/*<TreeNode title="leaf 1-1" key="0-1-1" isLeaf />*/}
-                    {/*</TreeNode>*/}
-                {/*</DirectoryTree>*/}
             </div>
-
+            <Profile />
             </React.Fragment>
         );
     }
