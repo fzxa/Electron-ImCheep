@@ -75,8 +75,9 @@
 }
 .profile-info .desc {
     height: 150px;
-    overflow: hidden;
-    overflow-y: scroll;
+    /*overflow: hidden;*/
+    /*overflow-y: scroll;*/
+    overflow:hidden;
 }
 
 .profile-footer {

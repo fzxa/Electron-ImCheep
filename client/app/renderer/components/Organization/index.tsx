@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import OverlayScrollbars from 'overlayscrollbars';
+
 import './Organization.css';
 import Tree from 'antd/es/tree';
 import 'antd/dist/antd.css';
+
 import {OrganizationListState, OrganizationState,} from "../../types";
 import ProfileInfo from '../Profile';
 
@@ -26,6 +29,18 @@ export default class Organization extends Component<initialProps, initialState> 
     public componentDidMount(): void {
         const {get_organization} = this.props;
         get_organization();
+
+        //scroll
+        let wrap:NodeListOf<Element> = document.querySelectorAll('.sidebar-list');
+        OverlayScrollbars(wrap, {
+            scrollbars: {
+                autoHide: 'leave'
+            },
+            overflowBehavior: {
+                x:'hidden',
+                y:'scroll'
+            }
+        });
     }
 
     private onSelect = (keys: any, event: any) => {
@@ -55,29 +70,31 @@ export default class Organization extends Component<initialProps, initialState> 
                 </div>
 
 
-                <DirectoryTree  onSelect={this.onSelect}>
+                <div className="sidebar-list">
+                    <DirectoryTree  onSelect={this.onSelect}>
 
-                    {
-                        Object.keys(User).map((value:string, index: number, array:string[])=>{
+                        {
+                            Object.keys(User).map((value:string, index: number, array:string[])=>{
 
-                            const Org:Array<string> = User[value];
-                            return (
-                                <TreeNode key={value} title={value}>
-                                    {
-                                         Object.keys(Org).map((v:string, i:number, a:string[])=>{
-                                             let INFO:[] = Org[v];
-                                             return(
-                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} title={ INFO['name']+ '('+(INFO['courtesyName'] || INFO['name'])+')'} key={INFO['uid'].toString()}></TreeNode>
-                                             )
-                                         })
-                                    }
-                                </TreeNode>
-                            )
-                        })
-                    }
+                                const Org: string[] = User[value];
+                                return (
+                                    <TreeNode key={value} title={value}>
+                                        {
+                                             Object.keys(Org).map((v:string, i:number, a:string[])=>{
+                                                 let INFO:[] = Org[v];
+                                                 return(
+                                                     <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} title={ INFO['name']+ '('+(INFO['courtesyName'] || INFO['name'])+')'} key={INFO['uid'].toString()}></TreeNode>
+                                                 )
+                                             })
+                                        }
+                                    </TreeNode>
+                                )
+                            })
+                        }
 
-                </DirectoryTree>
-
+                    </DirectoryTree>
+                </div>
+                {/*end sidebar-wrap*/}
             </div>
             <ProfileInfo Profile={Profile}/>
             </React.Fragment>

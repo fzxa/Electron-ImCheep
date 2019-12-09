@@ -18,6 +18,12 @@
     background-color: var(--white);
 }
 
+.sidebar-list {
+    height:calc(100% - 60px);
+    width:100%;
+    overflow:hidden;
+}
+
 .top {
     position: relative;
     width: 100%;
