@@ -7,6 +7,8 @@ import './Chat.css';
 // import NavGroup from '../NavGroup';
 // import SidebarGroup from '../SidebarGroup'
 
+import OverlayScrollbars from 'overlayscrollbars';
+
 interface State {
     socket?: any;
     message?: string[];
@@ -36,6 +38,7 @@ export default class Chat extends Component<Props, State> {
         this.handleSendMessage = this.handleSendMessage.bind(this);
 
     }
+
     componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>, snapshot?: any): void {
         console.log('update');
     }
@@ -58,7 +61,7 @@ export default class Chat extends Component<Props, State> {
                 // // @ts-ignore
                 // this.state.IScroll.scrollTo(0, this.state.IScroll.maxScrollY, 0);
             });
-
+            this.initScroll();
             // this.handleOnMessage();
         };
         this.handleScrollBar();
@@ -86,9 +89,28 @@ export default class Chat extends Component<Props, State> {
         // );
         // const userMedia = navigator.mediaDevices.getUserMedia({audio: true, video: true});
 
+
+    }
+
+    private initScroll(): void {
+        //scroll
+
+        // @ts-ignore
+        let ElScroll:OverlayScrollbars  = OverlayScrollbars(document.querySelectorAll('.chat-body'), {
+            scrollbars: {
+                autoHide: 'leave'
+            },
+            overflowBehavior: {
+                x:'hidden',
+                y:'scroll'
+            }
+        });
+        ElScroll.scroll(99999999999999);
+
     }
 
     handleScrollBar(): void {
+        this.initScroll();
         // console.log('iscroll is ',IScroll);
         // // @ts-ignore
         // const scroll = new IScroll('#wrapper', {
