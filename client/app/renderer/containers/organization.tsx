@@ -6,8 +6,10 @@ import Organization from '../components/Organization'
 
 
 function mapStateToProps(state: OrganizationStoreState) {
+  console.log('mapStateToProps', state);
   return {
-    Organization: state.Organization
+    OrganizationTree: state.organization.OrganizationTree,
+    Profile: state.organization.Profile,
   };
 }
 function mapDispatchToProps(dispatch: Dispatch<counterActions>) {

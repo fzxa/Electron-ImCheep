@@ -38,10 +38,17 @@ export interface OrganizationState {
   Department: string;
 }
 
-export interface OrganizationStoreState {
-    Organization: Array<OrganizationState>
-}
-
 export interface OrganizationListState {
   [propName: string]: Object[];
 }
+
+export interface OrganizationSchemaState {
+  Profile:OrganizationState;
+  OrganizationTree: OrganizationListState;
+}
+
+
+export interface OrganizationStoreState {
+  organization:OrganizationSchemaState
+}
+

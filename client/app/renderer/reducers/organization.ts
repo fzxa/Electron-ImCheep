@@ -1,25 +1,26 @@
 import { counterActions } from '../actions/organization';
-import { OrganizationListState } from '../types';
-import { GET_ORGANIZATION } from '../actions/organization/organizationType';
+import { OrganizationSchemaState} from '../types';
+import {GET_ORGANIZATION, GET_ORGANIZATION_INFO} from '../actions/organization/organizationType';
 import UserArr from './users';
 
-// const INITIAL_ITEM = {
-//     ID:0,
-//     FullName: "",
-//     PhoneNumber: "",
-//     Landline: "",
-//     PinYin: "",
-//     Level: "",
-//     Position: "",
-//     Workstation: "",
-//     Sex: "",
-//     Avatar: "",
-//     Profile: "",
-//     Department: "",
-// };
+const INITIAL_ITEM = {
+    ID:0,
+    FullName: "",
+    PhoneNumber: "",
+    Landline: "",
+    PinYin: "",
+    Level: "",
+    Position: "",
+    Workstation: "",
+    Sex: "",
+    Avatar: "",
+    Profile: "",
+    Department: "",
+};
 
 const INITIAL_STATE = {
-
+    Profile: INITIAL_ITEM,
+    OrganizationTree: {}
 }
 
 
@@ -27,7 +28,7 @@ const INITIAL_STATE = {
 //     return { ID, FullName, PhoneNumber, Landline, PinYin, Level, Position, Workstation, Sex, Avatar, Profile, Department };
 // }
 
-function GetOrganization(): OrganizationListState {
+function GetOrganization(state = INITIAL_STATE): OrganizationSchemaState {
 
     let devoteForArr: Array<string> = ['蜀','吴','袁绍','东汉','在野','董卓','西晋','刘表','起义军','少数民族','刘璋','袁术','其他'];
     let Org:any = {};
@@ -41,7 +42,16 @@ function GetOrganization(): OrganizationListState {
             }
         });
     });
-    return Org;
+    state.OrganizationTree = Org;
+    return state;
+    // return [
+    //     CreateOrganization(1, '王振','13693067204', '837402', 'wangzhen','T10','高级工程师','web开发','1','1.jpg','hello','简介')
+    // ];
+}
+
+function GetOrganizationInfo(state = INITIAL_STATE): OrganizationSchemaState {
+
+    return state;
     // return [
     //     CreateOrganization(1, '王振','13693067204', '837402', 'wangzhen','T10','高级工程师','web开发','1','1.jpg','hello','简介')
     // ];
@@ -53,11 +63,13 @@ function GetOrganization(): OrganizationListState {
 
 
 
-export default function Organization(state= INITIAL_STATE, action: counterActions):OrganizationListState {
+export default function Organization(state= INITIAL_STATE, action: counterActions):OrganizationSchemaState {
     switch (action.type) {
         case GET_ORGANIZATION:
             console.log('action...', action.type);
-            return GetOrganization();
+            return GetOrganization(state);
+        case GET_ORGANIZATION_INFO:
+            return GetOrganizationInfo(state);
         default:
             return state
     }

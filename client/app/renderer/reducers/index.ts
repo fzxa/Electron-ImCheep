@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
 import session from './sessionChat';
-import Organization from './organization';
+import organization from './organization';
 
 const rootReducers = combineReducers({
   counter,
   session,
-  Organization
+  organization
 });
 
 export default rootReducers;

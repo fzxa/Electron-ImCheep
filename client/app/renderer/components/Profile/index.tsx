@@ -25,13 +25,14 @@ export default class Profile extends Component {
                         </ul>
                         <Divider className="divider" />
                         <table>
+                            <tbody>
                             <tr>
                                 <td>职级</td>
                                 <td>15级工程师</td>
                             </tr>
                             <tr>
                                 <td>职位</td>
-                                <td>资深技术专家</td>
+                                <td>写BUG技术专家</td>
                             </tr>
                             <tr>
                                 <td>坐位</td>
@@ -44,6 +45,7 @@ export default class Profile extends Component {
 
                                 </td>
                             </tr>
+                            </tbody>
                         </table>
                         <div className="profile-footer">
                             <Button type='primary' block>发消息</Button>
