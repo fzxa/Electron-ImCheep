@@ -4,9 +4,9 @@ import {GET_ORGANIZATION, GET_ORGANIZATION_INFO} from '../actions/organization/o
 import UserArr from './users';
 
 const INITIAL_ITEM = {
-    ID:"",
-    FullName: "",
-    NickName: "",
+    ID:"000001",
+    FullName: "王振",
+    NickName: "zanewang",
     PhoneNumber: "",
     Landline: "",
     PinYin: "",
@@ -14,7 +14,7 @@ const INITIAL_ITEM = {
     Position: "",
     Workstation: "",
     Sex: "",
-    Avatar: "",
+    Avatar: "/image/avatar.png",
     Profile: "",
     Department: "",
 };
@@ -50,9 +50,10 @@ function GetOrganization(state = INITIAL_STATE): OrganizationSchemaState {
 function GetOrganizationInfo(state = INITIAL_STATE, uid = '0'): OrganizationSchemaState {
 
     let User:any = UserArr.find(user => user.uid === uid);
-    let Profile:OrganizationState = CreateProfile(User.uid, User.name, User.courtesyName, '','837402', User.pinyin, User.rank, User.devoteFor, User.nativePlace, User.gender, User.avatar, User.otherInfo, User.otherInfo);
-
-    state.Profile = Profile;
+    if ( User ) {
+        let Profile:OrganizationState = CreateProfile(User.uid, User.name, User.courtesyName, '','837402', User.pinyin, User.rank, User.devoteFor, User.nativePlace, User.gender, User.avatar, User.otherInfo, User.otherInfo);
+        state.Profile = Profile;
+    }
 
     return state;
 }

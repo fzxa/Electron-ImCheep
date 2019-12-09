@@ -23,6 +23,11 @@
     font-weight: bold;
     color:dodgerblue;
 }
+.sex-female {
+    font-size:12px;
+    font-weight: bold;
+    color:#ff7373;
+}
 
 .profile-info table {
     width:100%;
@@ -67,6 +72,11 @@
 .profile-info .info-left {
     width:300px;
     float:left;
+}
+.profile-info .desc {
+    height: 150px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .profile-footer {

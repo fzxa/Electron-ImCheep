@@ -2,13 +2,26 @@ import React, { Component } from 'react'
 import Divider from 'antd/es/divider';
 import Button from 'antd/es/button';
 import './Profile.css';
+import {OrganizationState} from "../../types";
 
+interface InitialProps {
+    Profile: OrganizationState;
+}
 
-export default class Profile extends Component {
+export default class Profile extends Component<InitialProps> {
 
 
     public render() {
+        const { Profile } = this.props;
+        console.log('profile',this.props, Profile);
 
+        let sexElem = ()=>{
+            if (Profile.Sex == '男') {
+                return <span><i className="ti-user sex"></i></span>
+            } else {
+                return <span><i className="ti-user sex-female"></i></span>
+            }
+        }
         return (
             <React.Fragment>
                 <div className="profile">
@@ -16,33 +29,36 @@ export default class Profile extends Component {
                         <ul>
                             <li>
                                 <div className='info-left'>
-                                    <h3>zanewang <span><i className="ti-user sex"></i></span></h3>
-                                    <p>王振</p>
-                                    <p>研发一组员工</p>
+                                    <h3>{Profile.NickName || Profile.FullName} {sexElem()}</h3>
+                                    <p>{Profile.FullName} ({Profile.PinYin})</p>
+                                    <p>{Profile.Position}</p>
                                 </div>
-                                <img src="/image/avatar.png" alt="" />
+                                <img src={Profile.Avatar}  alt="" />
                             </li>
                         </ul>
                         <Divider className="divider" />
                         <table>
                             <tbody>
                             <tr>
+                                <td>用户ID</td>
+                                <td>{Profile.ID}</td>
+                            </tr>
+                            <tr>
                                 <td>职级</td>
-                                <td>15级工程师</td>
+                                <td>{Profile.Level}</td>
                             </tr>
                             <tr>
-                                <td>职位</td>
-                                <td>BUG专家</td>
+                                <td>座机</td>
+                                <td>{Profile.Landline}</td>
                             </tr>
                             <tr>
-                                <td>坐位</td>
-                                <td>LX270</td>
+                                <td>位置</td>
+                                <td>{Profile.Workstation}</td>
                             </tr>
                             <tr>
-                                <td>部门</td>
+                                <td>简介</td>
                                 <td>
-                                    <p>CSIG云与智慧产业事业群/云产品部/大数据及人工智能产品中心/数仓与数据湖产品组/研发一组</p>
-
+                                    <p className="desc">{Profile.Profile}</p>
                                 </td>
                             </tr>
                             </tbody>

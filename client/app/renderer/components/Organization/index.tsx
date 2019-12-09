@@ -3,7 +3,7 @@ import './Organization.css';
 import Tree from 'antd/es/tree';
 import 'antd/dist/antd.css';
 import {OrganizationListState, OrganizationState,} from "../../types";
-import Profile from '../Profile';
+import ProfileInfo from '../Profile';
 
 
 interface initialState {
@@ -43,7 +43,7 @@ export default class Organization extends Component<initialProps, initialState> 
 
 
     public render() {
-        const { OrganizationTree } = this.props;
+        const { OrganizationTree, Profile } = this.props;
         let User:any = OrganizationTree;
 
         return (
@@ -68,7 +68,7 @@ export default class Organization extends Component<initialProps, initialState> 
                                          Object.keys(Org).map((v:string, i:number, a:string[])=>{
                                              let INFO:[] = Org[v];
                                              return(
-                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} isLeaf title={ INFO['name']+' ('+INFO['courtesyName'] +')'} key={INFO['uid'].toString()}></TreeNode>
+                                                 <TreeNode style={{"fontSize":"13px"}} icon={<img src={INFO['avatar']} className='organization-avatar' />} title={ INFO['name']+ '('+(INFO['courtesyName'] || INFO['name'])+')'} key={INFO['uid'].toString()}></TreeNode>
                                              )
                                          })
                                     }
@@ -80,7 +80,7 @@ export default class Organization extends Component<initialProps, initialState> 
                 </DirectoryTree>
 
             </div>
-            <Profile />
+            <ProfileInfo Profile={Profile}/>
             </React.Fragment>
         );
     }
