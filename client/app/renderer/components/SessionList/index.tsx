@@ -20,8 +20,8 @@ export default class SessionList extends Component<SessionChatProps> {
                     <a href="javascript:;" className="ti-plus"></a>
                 </div>
                 <ul className="people">
-                    
-                    <li className="person" onClick={switch_chat}>
+
+                    <li className="person active" onClick={switch_chat}>
                         <img src="/image/avatar.png" alt="" />
                         <span className="name">zanewang(王振)</span>
                         <span className="time">刚刚</span>

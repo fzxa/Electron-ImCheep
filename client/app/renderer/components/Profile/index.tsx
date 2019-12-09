@@ -27,7 +27,7 @@ export default class Profile extends Component<InitialProps> {
                 <div className="profile">
                     {
                         Profile.ID == '' ?
-                    <Empty />
+                    <Empty description='暂无数据' />
                         :
                         <div className="profile-info">
                             <ul>

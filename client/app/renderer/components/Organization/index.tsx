@@ -67,7 +67,7 @@ export default class Organization extends Component<initialProps, initialState> 
                                          Object.keys(Org).map((v:string, i:number, a:string[])=>{
                                              let INFO:[] = Org[v];
                                              return(
-                                                 <TreeNode style={{"fontSize":"13px"}} icon={<img src={INFO['avatar']} className='organization-avatar' />} title={ INFO['name']+ '('+(INFO['courtesyName'] || INFO['name'])+')'} key={INFO['uid'].toString()}></TreeNode>
+                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} title={ INFO['name']+ '('+(INFO['courtesyName'] || INFO['name'])+')'} key={INFO['uid'].toString()}></TreeNode>
                                              )
                                          })
                                     }

@@ -84,3 +84,19 @@
     text-align: center;
     margin:30px auto 0;
 }
+
+/*custom style*/
+.ant-tree.ant-tree-directory > li span.ant-tree-node-content-wrapper::before, .ant-tree.ant-tree-directory .ant-tree-child-tree > li span.ant-tree-node-content-wrapper::before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: -4px;
+    height: 32px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    content: '';
+}
+.ant-tree.ant-tree-directory > li.ant-tree-treenode-selected > span.ant-tree-node-content-wrapper::before, .ant-tree.ant-tree-directory .ant-tree-child-tree > li.ant-tree-treenode-selected > span.ant-tree-node-content-wrapper::before {
+    background:-webkit-linear-gradient(left, #0078F3 , #00A3FF);
+}

@@ -56,3 +56,7 @@
     margin-right:10px;
 }
 
+/*custom style*/
+.ant-tree.ant-tree-directory > li span.ant-tree-node-content-wrapper > span, .ant-tree.ant-tree-directory .ant-tree-child-tree > li span.ant-tree-node-content-wrapper > span {
+    font-size:13px;
+}
