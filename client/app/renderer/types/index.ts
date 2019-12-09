@@ -24,8 +24,9 @@ export interface SessionStoreState {
 
 // 联系人信息
 export interface OrganizationState {
-  ID: number;
+  ID: string;
   FullName: string;
+  NickName: string;
   PhoneNumber: string;
   Landline: string;
   PinYin: string;

@@ -14,7 +14,7 @@ interface initialProps {
     Profile: OrganizationState;
     OrganizationTree: OrganizationListState;
     get_organization: ()=> void;
-    get_organization_info: ()=>void;
+    get_organization_info: (uid:string)=>void;
 }
 
 const { TreeNode, DirectoryTree } = Tree;
@@ -30,12 +30,16 @@ export default class Organization extends Component<initialProps, initialState> 
     }
 
     private onSelect = (keys: any, event: any) => {
+        const { get_organization_info } = this.props;
         console.log('Trigger Select', keys, event);
+        const UID:string = keys[0];
+
+        get_organization_info(UID);
     };
 
-    private onExpand = () => {
-        console.log('Trigger Expand');
-    };
+    // private onExpand = () => {
+    //     console.log('Trigger Expand');
+    // };
 
 
     public render() {
@@ -52,7 +56,7 @@ export default class Organization extends Component<initialProps, initialState> 
                 </div>
 
 
-                <DirectoryTree  onSelect={this.onSelect} onExpand={this.onExpand}>
+                <DirectoryTree  onSelect={this.onSelect}>
 
                     {
                         Object.keys(User).map((value:string, index: number, array:string[])=>{
@@ -64,7 +68,7 @@ export default class Organization extends Component<initialProps, initialState> 
                                          Object.keys(Org).map((v:string, i:number, a:string[])=>{
                                              let INFO:[] = Org[v];
                                              return(
-                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} title={ INFO['name']+' ('+INFO['courtesyName'] +')'} key={INFO['uid'].toString()}></TreeNode>
+                                                 <TreeNode icon={<img src={INFO['avatar']} className='organization-avatar' />} isLeaf title={ INFO['name']+' ('+INFO['courtesyName'] +')'} key={INFO['uid'].toString()}></TreeNode>
                                              )
                                          })
                                     }

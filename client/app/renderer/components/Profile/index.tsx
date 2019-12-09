@@ -32,7 +32,7 @@ export default class Profile extends Component {
                             </tr>
                             <tr>
                                 <td>职位</td>
-                                <td>写BUG技术专家</td>
+                                <td>BUG专家</td>
                             </tr>
                             <tr>
                                 <td>坐位</td>

@@ -1,11 +1,12 @@
 import { counterActions } from '../actions/organization';
-import { OrganizationSchemaState} from '../types';
+import { OrganizationSchemaState, OrganizationState} from '../types';
 import {GET_ORGANIZATION, GET_ORGANIZATION_INFO} from '../actions/organization/organizationType';
 import UserArr from './users';
 
 const INITIAL_ITEM = {
-    ID:0,
+    ID:"",
     FullName: "",
+    NickName: "",
     PhoneNumber: "",
     Landline: "",
     PinYin: "",
@@ -20,13 +21,13 @@ const INITIAL_ITEM = {
 
 const INITIAL_STATE = {
     Profile: INITIAL_ITEM,
-    OrganizationTree: {}
+    OrganizationTree: {},
 }
 
 
-// function CreateOrganization(ID:number, FullName: string, PhoneNumber: string, Landline: string, PinYin: string, Level: string, Position: string, Workstation: string, Sex: string, Avatar: string, Profile:string, Department: string): OrganizationState {
-//     return { ID, FullName, PhoneNumber, Landline, PinYin, Level, Position, Workstation, Sex, Avatar, Profile, Department };
-// }
+function CreateProfile(ID:string, FullName: string, NickName: string,  PhoneNumber: string, Landline: string, PinYin: string, Level: string, Position: string, Workstation: string, Sex: string, Avatar: string, Profile:string, Department: string): OrganizationState {
+    return { ID, FullName, NickName, PhoneNumber, Landline, PinYin, Level, Position, Workstation, Sex, Avatar, Profile, Department };
+}
 
 function GetOrganization(state = INITIAL_STATE): OrganizationSchemaState {
 
@@ -44,32 +45,29 @@ function GetOrganization(state = INITIAL_STATE): OrganizationSchemaState {
     });
     state.OrganizationTree = Org;
     return state;
-    // return [
-    //     CreateOrganization(1, '王振','13693067204', '837402', 'wangzhen','T10','高级工程师','web开发','1','1.jpg','hello','简介')
-    // ];
 }
 
-function GetOrganizationInfo(state = INITIAL_STATE): OrganizationSchemaState {
+function GetOrganizationInfo(state = INITIAL_STATE, uid = '0'): OrganizationSchemaState {
+
+    let User:any = UserArr.find(user => user.uid === uid);
+    let Profile:OrganizationState = CreateProfile(User.uid, User.name, User.courtesyName, '','837402', User.pinyin, User.rank, User.devoteFor, User.nativePlace, User.gender, User.avatar, User.otherInfo, User.otherInfo);
+
+    state.Profile = Profile;
 
     return state;
-    // return [
-    //     CreateOrganization(1, '王振','13693067204', '837402', 'wangzhen','T10','高级工程师','web开发','1','1.jpg','hello','简介')
-    // ];
 }
-
-// function GetOrganizationInfoByID( UserArr: any, ID: number ): OrganizationState {
-//     return UserArr.find(Organization => Organization.ID === ID);
-// }
 
 
 
 export default function Organization(state= INITIAL_STATE, action: counterActions):OrganizationSchemaState {
     switch (action.type) {
         case GET_ORGANIZATION:
-            console.log('action...', action.type);
             return GetOrganization(state);
+
         case GET_ORGANIZATION_INFO:
-            return GetOrganizationInfo(state);
+            let uid:string = action.uid;
+            return GetOrganizationInfo(state, uid);
+
         default:
             return state
     }

@@ -14,10 +14,12 @@ export function get_organization(): GetOrganization {
 
 interface GetOrganizationInfo {
   type: GET_ORGANIZATION_INFO,
+  uid: string
 }
 
-export function get_organization_info(): GetOrganizationInfo {
+export function get_organization_info(uid:string): GetOrganizationInfo {
   return {
-    type: GET_ORGANIZATION_INFO
+    type: GET_ORGANIZATION_INFO,
+    uid
   }
 }
