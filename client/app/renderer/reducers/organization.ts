@@ -4,7 +4,7 @@ import {GET_ORGANIZATION, GET_ORGANIZATION_INFO} from '../actions/organization/o
 import UserArr from './users';
 
 const INITIAL_ITEM = {
-    ID:"000001",
+    ID:"",
     FullName: "王振",
     NickName: "zanewang",
     PhoneNumber: "",

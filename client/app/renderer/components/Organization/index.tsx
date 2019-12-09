@@ -24,7 +24,6 @@ export default class Organization extends Component<initialProps, initialState> 
     state: Readonly<initialState>
 
     public componentDidMount(): void {
-        console.log('componentDidMount',this.props);
         const {get_organization} = this.props;
         get_organization();
     }
