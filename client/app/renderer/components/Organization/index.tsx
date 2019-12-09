@@ -71,8 +71,8 @@ export default class Organization extends Component<initialProps, initialState> 
 
 
                 <div className="sidebar-list">
-                    <DirectoryTree  onSelect={this.onSelect}>
-
+                    <DirectoryTree defaultSelectedKeys={['三国科技有限公司']} defaultExpandedKeys={['三国科技有限公司']} onSelect={this.onSelect}>
+                        <TreeNode key="三国科技有限公司" title="三国科技有限公司">
                         {
                             Object.keys(User).map((value:string, index: number, array:string[])=>{
 
@@ -91,7 +91,7 @@ export default class Organization extends Component<initialProps, initialState> 
                                 )
                             })
                         }
-
+                        </TreeNode>
                     </DirectoryTree>
                 </div>
                 {/*end sidebar-wrap*/}
