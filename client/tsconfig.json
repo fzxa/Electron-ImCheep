@@ -33,3 +33,5 @@
     "src/setupTests.ts"
   ]
 }
+
+/// <reference types="websql" />

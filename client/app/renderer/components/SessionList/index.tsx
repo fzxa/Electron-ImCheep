@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './SessionList.css';
 
+import websqlService from '../../service/websqlService';
+
 interface SessionChatProps {
     ChatIndex: number,
     MessageList: [],
@@ -10,6 +12,8 @@ interface SessionChatProps {
 export default class SessionList extends Component<SessionChatProps> {
 
     render() {
+        let test: any = new websqlService();
+        console.log(test);
         const {ChatIndex, MessageList, switch_chat } = this.props;
         console.log(ChatIndex, MessageList, switch_chat);
 
