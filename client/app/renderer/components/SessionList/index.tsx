@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SessionList.css';
 
 import websqlService from '../../service/websqlService';
+import indexDBService from '../../service/indexDBService';
 
 interface SessionChatProps {
     ChatIndex: number,
@@ -16,6 +17,9 @@ export default class SessionList extends Component<SessionChatProps> {
         console.log(test);
         const {ChatIndex, MessageList, switch_chat } = this.props;
         console.log(ChatIndex, MessageList, switch_chat);
+
+        let indexDb: any = new indexDBService();
+        console.log(indexDb);
 
         return (
             <div className="sidebar-group">

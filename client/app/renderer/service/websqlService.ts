@@ -45,7 +45,7 @@ export default class websqlService {
 
     public createSchema(): void {
 
-
+        // this.executeSql("DROP TABLE session_users");
         this.executeSql('' +
             'CREATE TABLE session_users(\n' +
             '   id INTEGER PRIMARY KEY   AUTOINCREMENT,\n' +
@@ -55,7 +55,7 @@ export default class websqlService {
             '   deleted    TINYINT(4)\n' +
             ')');
         this.executeSql("INSERT INTO session_users (name,last_message,time, deleted)" +
-            "VALUES ( 'wangzhen', '你好' ， 1111111, '0');");
+            "VALUES ( 'wangzhen', '你好' ， 1111111, 0);");
     }
 
     public insertData():void {
