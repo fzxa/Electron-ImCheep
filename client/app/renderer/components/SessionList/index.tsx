@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './SessionList.css';
 
-import websqlService from '../../service/websqlService';
-import indexDBService from '../../service/indexDBService';
+// import websqlService from '../../service/websqlService';
+import IDBService from '../../service/IDBService';
 
 interface SessionChatProps {
     ChatIndex: number,
@@ -13,12 +13,12 @@ interface SessionChatProps {
 export default class SessionList extends Component<SessionChatProps> {
 
     render() {
-        let test: any = new websqlService();
-        console.log(test);
+        // let test: any = new websqlService();
+        // console.log(test);
         const {ChatIndex, MessageList, switch_chat } = this.props;
         console.log(ChatIndex, MessageList, switch_chat);
 
-        let indexDb: any = new indexDBService();
+        let indexDb: any = new IDBService();
         console.log(indexDb);
 
         return (
