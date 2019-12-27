@@ -36,6 +36,20 @@ export default class SessionList extends Component<SessionChatProps> {
                         <span className="preview">暂时没有对vscode二次开发</span>
                     </li>
 
+                    <li className="person" onClick={switch_chat}>
+                        <img src="/image/avatar.png" alt="" />
+                        <span className="name">zanewang(王振)</span>
+                        <span className="time">刚刚</span>
+                        <span className="preview">暂时没有对vscode二次开发</span>
+                    </li>
+
+                    <li className="person" onClick={switch_chat}>
+                        <img src="/image/avatar.png" alt="" />
+                        <span className="name">zanewang(王振)</span>
+                        <span className="time">刚刚</span>
+                        <span className="preview">暂时没有对vscode二次开发</span>
+                    </li>
+
                 </ul>
             </div>
         );

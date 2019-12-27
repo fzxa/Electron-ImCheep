@@ -38,8 +38,20 @@ export default class IDBService {
             })
         }
 
-
     };
+
+    // public getSessionUsers(): void {
+    //
+    //     var transaction: IDBTransaction = this.dbInstance.transaction(['session_users'], "readwrite");
+    //
+    //     var objectStore:IDBObjectStore = transaction.objectStore('session_users');
+    //     var request:IDBRequest = objectStore.get(1);
+    //     request.onsuccess = ()=>{
+    //         if (request.result) {
+    //             console.log(request.result);
+    //         }
+    //     }
+    // }
 
 
 }

@@ -81,7 +81,7 @@
     /* border-top: 2px solid #e1e1e1; */
     border-top:1px solid var(--light);
     background:var(--white);
-    min-height: 180px;
+    min-height: 200px;
     position:absolute;
     bottom:0;
     width: calc(100% - 252px - 66px);
@@ -248,6 +248,7 @@
 
 /*message*/
 .message-pannel {
+    overflow:hidden;
     height:35px;
 }
 .message-pannel ul{
