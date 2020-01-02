@@ -1,6 +1,6 @@
 
 const DB_NAME: string = "imcheep";
-const DB_VERSION: number = 1;
+const DB_VERSION: number = 1.01;
 
 export default class IDBService {
 
@@ -25,17 +25,23 @@ export default class IDBService {
 
 
         this.DB.onupgradeneeded = (event:any)=>{
-            console.log('onupgradeneeded....')
+
             let db:any = event.target.result;
-            let store:IDBObjectStore = db.createObjectStore("session_users", {
+            //let store:IDBObjectStore
+            db.createObjectStore("session_users", {
                 autoIncrement: true,
                 keyPath: "id"
             });
-            let data:object[] = [{"name":"zanewang(王振)", "avatar":"/image/avatar.png", "last_message":"请稍后重试账号余额不足充值", "time":"刚刚", "rank": 1, "deleted":0}];
 
-            data.map((value, index)=>{
-                store.add(value)
+            db.createObjectStore("session_message", {
+                autoIncrement: true,
+                keyPath: "id"
             })
+            // let data:object[] = [{"name":"zanewang(王振)", "avatar":"/image/avatar.png", "last_message":"请稍后重试账号余额不足充值", "time":"刚刚", "rank": 1, "deleted":0}];
+            //
+            // data.map((value, index)=>{
+            //     store.add(value)
+            // })
         }
 
     };
