@@ -1,63 +1,59 @@
+import Dexie from 'dexie';
 
-const DB_NAME: string = "imcheep";
-const DB_VERSION: number = 1.01;
+const DB_NAME: string = 'imcheep';
+const DB_VERSION: number = 1;
 
-export default class IDBService {
 
-    private readonly indexDB: IDBFactory;
-    private readonly DB: IDBOpenDBRequest;
+//
+// Declare Database
+//
+class IDBService extends Dexie {
 
-    public dbInstance: IDBDatabase;
 
-    constructor() {
+    SessionUsers:Dexie.Table<ISessionUsers,number>;
 
-        this.indexDB = window.indexedDB;
-        this.DB = this.indexDB.open(DB_NAME, DB_VERSION);
+    constructor(){
+        super(DB_NAME);
 
-        this.DB.onsuccess = (e: any)=>{
-            this.dbInstance = e.target.result;
+        var db = this;
 
-        }
-        this.createSchema();
+        db.version(DB_VERSION).stores({
+            SessionUsers: "++id, name, avatar, lastMessage, time, rank, deleted"
+        });
+
     }
-
-    public createSchema() {
-
-
-        this.DB.onupgradeneeded = (event:any)=>{
-
-            let db:any = event.target.result;
-            //let store:IDBObjectStore
-            db.createObjectStore("session_users", {
-                autoIncrement: true,
-                keyPath: "id"
-            });
-
-            db.createObjectStore("session_message", {
-                autoIncrement: true,
-                keyPath: "id"
-            })
-            // let data:object[] = [{"name":"zanewang(王振)", "avatar":"/image/avatar.png", "last_message":"请稍后重试账号余额不足充值", "time":"刚刚", "rank": 1, "deleted":0}];
-            //
-            // data.map((value, index)=>{
-            //     store.add(value)
-            // })
-        }
-
-    };
-
-    // public getSessionUsers(): void {
-    //
-    //     var transaction: IDBTransaction = this.dbInstance.transaction(['session_users'], "readwrite");
-    //
-    //     var objectStore:IDBObjectStore = transaction.objectStore('session_users');
-    //     var request:IDBRequest = objectStore.get(1);
-    //     request.onsuccess = ()=>{
-    //         if (request.result) {
-    //             console.log(request.result);
-    //         }
-    //     }
-    // }
-
-
 }
+
+export interface ISessionUsers {
+    id?: number;
+    name?: string;
+    avatar?: string;
+    lastMessage?: string;
+    time?:string;
+    rank?: number;
+    deleted?: boolean;
+}
+
+export var db = new IDBService();
+
+
+
+
+//
+// Manipulate and Query Database
+//
+// db.friends.add({name: "Josephine", age: 21}).then(()=>{
+//     return db.friends.where("id").equals(1).toArray();
+// }).then(youngFriends => {
+//     alert ("My young friends: " + JSON.stringify(youngFriends));
+// }).catch(e => {
+//     alert("error: " + e.stack || e);
+// });
+// var db = new IDBService();
+// db.SessionUsers.add({name: "Zanewang", avatar:"/image/avatar.png", lastMessage:"收到请回答", time: "刚刚", rank: 0, deleted: false}).then(()=>{
+//     return db.SessionUsers.where("id").equals(4).toArray();
+// }).then(youngFriends => {
+//     alert ("My young friends: " + JSON.stringify(youngFriends));
+// }).catch(e => {
+//     alert("error: " + e.stack || e);
+// });

@@ -12,10 +12,22 @@ export interface StoreState {
   counter: CounterState;
 }
 
+// id: number;
+// name: string;
+// avatar: string;
+// lastMessage: string;
+// time:string;
+// rank: number;
+// deleted: boolean;
+export interface SessionUsersState {
+
+  [propName: string]: Object[];
+}
 
 export interface SessionState {
   ChatIndex: number;
   MessageList: [];
+  SessionUsers: SessionUsersState;
 }
 
 export interface SessionStoreState {

@@ -71,8 +71,8 @@ export default class Organization extends Component<initialProps, initialState> 
 
 
                 <div className="sidebar-list">
-                    <DirectoryTree defaultSelectedKeys={['三国科技有限公司']} defaultExpandedKeys={['三国科技有限公司']} onSelect={this.onSelect}>
-                        <TreeNode key="三国科技有限公司" title="三国科技有限公司">
+                    <DirectoryTree defaultSelectedKeys={['三国科技']} defaultExpandedKeys={['三国科技']} onSelect={this.onSelect}>
+                        <TreeNode key="三国科技" title="三国科技">
                         {
                             Object.keys(User).map((value:string, index: number, array:string[])=>{
 
