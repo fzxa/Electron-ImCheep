@@ -28,6 +28,7 @@ interface sessionUsers {
   type: SESSION_USERS,
 }
 export function session_users(): sessionUsers {
+
   return {
     type: SESSION_USERS
   }

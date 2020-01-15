@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './SessionList.css';
+import {SessionUsersState} from "../../types";
+// import {SessionUsersState} from "../../types";
 
 
 interface SessionChatProps {
     ChatIndex: number,
-    MessageList: [],
+    MessageList: string[],
+    SessionUsers:SessionUsersState,
     switch_chat: ()=>void,
     session_users: ()=>void,
 }
@@ -12,14 +15,15 @@ interface SessionChatProps {
 export default class SessionList extends Component<SessionChatProps> {
 
     componentDidMount(): void {
-        const {session_users} = this.props;
+        const {session_users, SessionUsers} = this.props;
         session_users();
+        console.log('session users------', this.props, SessionUsers);
     }
 
     render() {
         // console.log(test);
-        const {ChatIndex, MessageList, switch_chat, session_users} = this.props;
-        console.log(ChatIndex, MessageList, switch_chat, session_users);
+        const {SessionUsers, switch_chat} = this.props;
+       console.log('render ....',SessionUsers);
 
         return (
             <div className="sidebar-group">

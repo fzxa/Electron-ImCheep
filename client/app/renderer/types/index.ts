@@ -20,14 +20,13 @@ export interface StoreState {
 // rank: number;
 // deleted: boolean;
 export interface SessionUsersState {
-
   [propName: string]: Object[];
 }
 
 export interface SessionState {
   ChatIndex: number;
-  MessageList: [];
-  SessionUsers: SessionUsersState;
+  MessageList: string[];
+  SessionUsers:SessionUsersState;
 }
 
 export interface SessionStoreState {
