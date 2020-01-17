@@ -7,7 +7,7 @@ interface SessionChatProps {
     ChatIndex: number,
     MessageList: string[],
     SessionUsers:SessionUsersState,
-    switch_chat: ()=>void,
+    switch_chat: (idx:number, user: object)=>void | undefined,
     session_users: ()=>void,
 }
 
@@ -34,9 +34,9 @@ export default class SessionList extends Component<SessionChatProps> {
                     {
                         Object.keys(SessionUsers).map((index)=>{
                             let user:object = SessionUsers[index];
-
+                            let idx:number = parseInt(index);
                             return (
-                                <li className={parseInt(index) == ChatIndex ? 'person active' : 'person'} onClick={switch_chat} key={index}>
+                                <li className={idx == ChatIndex ? 'person active' : 'person'} onClick={()=> switch_chat(idx, user)} key={index}>
                                     <img src={user['avatar']} alt="" />
                                     <span className="name">{user['name']}</span>
                                     <span className="time">{user['time']}</span>

@@ -8,7 +8,7 @@ interface SessionChatProps {
     ChatIndex: number;
     MessageList: string[],
     SessionUsers: SessionUsersState,
-    switch_chat: ()=> void,
+    switch_chat: (idx:number, user: object)=> void,
     session_users:()=>void,
 }
 

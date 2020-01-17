@@ -9,9 +9,14 @@ const INITIAL_STATE = {
     SessionUsers: {},
 };
 
+function SwitchChat(state = INITIAL_STATE, action:any): SessionState {
+    console.log(action.payload)
+    state.ChatIndex = action.payload.idx;
+    return state;
+}
 
 function GetSessionUsers(state = INITIAL_STATE, action:any):SessionState {
-
+    console.log(action.payload)
     state.SessionUsers = action.payload
 
     return state;
@@ -21,16 +26,16 @@ function GetSessionUsers(state = INITIAL_STATE, action:any):SessionState {
 export default function Session(state = INITIAL_STATE, action: counterActions):SessionState {
     switch (action.type) {
         case SESSION:
-           state
+
+            return state;
+            break;
         case SWITCH_CHAT:
-            return {
-                ChatIndex: 0,
-                MessageList: [],
-                SessionUsers: {}
-            }
+            return SwitchChat(state, action)
+            break;
         case SESSION_USERS:
 
             return GetSessionUsers(state, action);
+            break;
         default:
             return {
                 ChatIndex: 0,

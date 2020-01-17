@@ -57,15 +57,15 @@
     border-left: 1px solid var(--light);
     width: calc(100% + 2px);
 }
-.person:hover {
-    margin-top: -1px;
-    margin-left: -1px;
-    padding-top: 13px;
-    border: 0;
-    background-color: var(--blue);
-    width: calc(100% + 2px);
-    padding-left: calc(10% + 1px);
-}
+/*.person:hover {*/
+    /*margin-top: -1px;*/
+    /*margin-left: -1px;*/
+    /*padding-top: 13px;*/
+    /*border: 0;*/
+    /*background-color: var(--blue);*/
+    /*width: calc(100% + 2px);*/
+    /*padding-left: calc(10% + 1px);*/
+/*}*/
 
 .people .person {
     position: relative;
@@ -126,8 +126,8 @@
     max-weight:100px;
 }
 
-.people .person.active, .people .person:hover {
-/*.people .person.active {*/
+/*.people .person.active,  .people .person:hover {*/
+.people .person.active {
     margin-top: -1px;
     margin-left: -1px;
     padding-top: 13px;
@@ -138,7 +138,7 @@
     padding-left: calc(10% + 1px);
 }
 
-.people .person.active span, .people .person:hover span {
+.people .person.active span {
     color: var(--white);
     background: transparent;
 }
