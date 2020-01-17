@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './SessionList.css';
 import {SessionUsersState} from "../../types";
-// import {SessionUsersState} from "../../types";
 
 
 interface SessionChatProps {
@@ -21,8 +20,8 @@ export default class SessionList extends Component<SessionChatProps> {
     }
 
     render() {
-        // console.log(test);
-        const {SessionUsers, switch_chat} = this.props;
+
+        const {SessionUsers, switch_chat, ChatIndex} = this.props;
 
         return (
             <div className="sidebar-group">
@@ -37,7 +36,7 @@ export default class SessionList extends Component<SessionChatProps> {
                             let user:object = SessionUsers[index];
 
                             return (
-                                <li className='person' onClick={switch_chat} key={index}>
+                                <li className={parseInt(index) == ChatIndex ? 'person active' : 'person'} onClick={switch_chat} key={index}>
                                     <img src={user['avatar']} alt="" />
                                     <span className="name">{user['name']}</span>
                                     <span className="time">{user['time']}</span>
@@ -46,13 +45,6 @@ export default class SessionList extends Component<SessionChatProps> {
                             )
                         })
                     }
-
-                    {/*<li className="person" onClick={switch_chat}>*/}
-                        {/*<img src="/image/avatar.png" alt="" />*/}
-                        {/*<span className="name">zanewang(王振)</span>*/}
-                        {/*<span className="time">刚刚</span>*/}
-                        {/*<span className="preview">暂时没有对vscode二次开发</span>*/}
-                    {/*</li>*/}
 
                 </ul>
             </div>

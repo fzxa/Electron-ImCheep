@@ -32,8 +32,6 @@ export function session_users() {
   return(dispatch:any)=>{
 
     db.SessionUsers.toArray().then((users)=>{
-      // alert(JSON.stringify(users))
-      // alert(dispatch);
 
       dispatch({
         type: SESSION_USERS,
@@ -41,7 +39,4 @@ export function session_users() {
       })
     })
   };
-//   return {
-//     type: SESSION_USERS
-//   }
 }
