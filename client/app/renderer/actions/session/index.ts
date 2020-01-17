@@ -1,4 +1,5 @@
 import {SESSION, SWITCH_CHAT, SESSION_USERS} from "./sessionType";
+import {db} from '../../service/IDBService';
 
 export type counterActions = Session | switchChat | sessionUsers;
 
@@ -27,9 +28,20 @@ export function switch_chat(): switchChat {
 interface sessionUsers {
   type: SESSION_USERS,
 }
-export function session_users(): sessionUsers {
+export function session_users() {
+  return(dispatch:any)=>{
 
-  return {
-    type: SESSION_USERS
-  }
+    db.SessionUsers.toArray().then((users)=>{
+      // alert(JSON.stringify(users))
+      // alert(dispatch);
+
+      dispatch({
+        type: SESSION_USERS,
+        payload:users
+      })
+    })
+  };
+//   return {
+//     type: SESSION_USERS
+//   }
 }

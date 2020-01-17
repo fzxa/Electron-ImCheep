@@ -15,15 +15,14 @@ interface SessionChatProps {
 export default class SessionList extends Component<SessionChatProps> {
 
     componentDidMount(): void {
-        const {session_users, SessionUsers} = this.props;
+        const {session_users, ChatIndex} = this.props;
         session_users();
-        console.log('session users------', this.props, SessionUsers);
+        console.log(ChatIndex)
     }
 
     render() {
         // console.log(test);
         const {SessionUsers, switch_chat} = this.props;
-       console.log('render ....',SessionUsers);
 
         return (
             <div className="sidebar-group">
@@ -33,19 +32,20 @@ export default class SessionList extends Component<SessionChatProps> {
                 </div>
                 <ul className="people">
 
-                    <li className="person active" onClick={switch_chat}>
-                        <img src="/image/avatar.png" alt="" />
-                        <span className="name">zanewang(王振)</span>
-                        <span className="time">刚刚</span>
-                        <span className="preview">暂时没有对vscode二次开发</span>
-                    </li>
+                    {
+                        Object.keys(SessionUsers).map((index)=>{
+                            let user:object = SessionUsers[index];
 
-                    {/*<li className="person" onClick={switch_chat}>*/}
-                        {/*<img src="/image/avatar.png" alt="" />*/}
-                        {/*<span className="name">zanewang(王振)</span>*/}
-                        {/*<span className="time">刚刚</span>*/}
-                        {/*<span className="preview">暂时没有对vscode二次开发</span>*/}
-                    {/*</li>*/}
+                            return (
+                                <li className='person' onClick={switch_chat} key={index}>
+                                    <img src={user['avatar']} alt="" />
+                                    <span className="name">{user['name']}</span>
+                                    <span className="time">{user['time']}</span>
+                                    <span className="preview">{user['lastMessage']}</span>
+                                </li>
+                            )
+                        })
+                    }
 
                     {/*<li className="person" onClick={switch_chat}>*/}
                         {/*<img src="/image/avatar.png" alt="" />*/}
