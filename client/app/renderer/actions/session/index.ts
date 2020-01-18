@@ -36,10 +36,12 @@ interface sessionUsers {
   type: SESSION_USERS,
 }
 export function session_users() {
+  console.log('argumentys...',arguments)
   return(dispatch:Dispatch)=>{
 
     db.SessionUsers.toArray().then((users)=>{
-      db.MessageList.toArray().then((msg) => {
+      db.MessageList.where({from:1,to:2}).toArray().then((msg) => {
+        msg = [];
         dispatch({
           type: SESSION_USERS,
           payload:{users,msg}

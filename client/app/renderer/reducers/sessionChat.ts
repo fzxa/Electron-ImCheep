@@ -5,7 +5,10 @@ import {SESSION, SWITCH_CHAT, SESSION_USERS} from "../actions/session/sessionTyp
 
 const INITIAL_STATE = {
     ChatIndex: 0,
-    MessageList: ["nihao"],
+    LoginUser:{
+        uid: 1,
+    },
+    MessageList: {},
     SessionUsers: {},
 };
 
@@ -37,10 +40,6 @@ export default function Session(state = INITIAL_STATE, action: counterActions):S
             return GetSessionUsers(state, action);
             break;
         default:
-            return {
-                ChatIndex: 0,
-                MessageList: [],
-                SessionUsers: {}
-            }
+            return state
     }
 }

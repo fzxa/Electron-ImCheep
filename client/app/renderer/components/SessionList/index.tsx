@@ -5,7 +5,7 @@ import {SessionUsersState} from "../../types";
 
 interface SessionChatProps {
     ChatIndex: number,
-    MessageList: string[],
+    // MessageList: SessionUsersState,
     SessionUsers:SessionUsersState,
     switch_chat: (idx:number, user: object)=>void | undefined,
     session_users: ()=>void,
@@ -14,9 +14,8 @@ interface SessionChatProps {
 export default class SessionList extends Component<SessionChatProps> {
 
     componentDidMount(): void {
-        const {session_users, ChatIndex} = this.props;
+        const {session_users} = this.props;
         session_users();
-        console.log(ChatIndex)
     }
 
     render() {

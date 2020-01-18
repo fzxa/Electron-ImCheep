@@ -6,7 +6,8 @@ import {SessionUsersState} from "../../types";
 
 interface SessionChatProps {
     ChatIndex: number;
-    MessageList: string[],
+    LoginUser: object,
+    MessageList: SessionUsersState,
     SessionUsers: SessionUsersState,
     switch_chat: (idx:number, user: object)=> void,
     session_users:()=>void,
@@ -14,11 +15,12 @@ interface SessionChatProps {
 
 export default class ChatBox extends Component<SessionChatProps> {
   render() {
-    const {ChatIndex, MessageList,SessionUsers, switch_chat, session_users} = this.props;
+    const {ChatIndex, LoginUser, MessageList,SessionUsers, switch_chat, session_users} = this.props;
+
     return (
       <React.Fragment>
-        <SessionList ChatIndex={ChatIndex} MessageList={MessageList} SessionUsers={SessionUsers} switch_chat={switch_chat}  session_users={session_users}/>
-        <Chat />
+        <SessionList ChatIndex={ChatIndex}  SessionUsers={SessionUsers} switch_chat={switch_chat}  session_users={session_users}/>
+        <Chat MessageList={MessageList} LoginUser={LoginUser}/>
       </React.Fragment>
     );
   }

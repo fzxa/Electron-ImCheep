@@ -8,6 +8,7 @@ import './Chat.css';
 // import SidebarGroup from '../SidebarGroup'
 
 import OverlayScrollbars from 'overlayscrollbars';
+import {SessionUsersState} from "../../types";
 
 interface State {
     socket?: any;
@@ -17,12 +18,13 @@ interface State {
 
 interface Props {
     foo?: string;
+    MessageList: SessionUsersState,
+    LoginUser: {}
 }
 
 export default class Chat extends Component<Props, State> {
 
     static defaultProps = {
-        foo:''
     };
 
     state = {
@@ -140,6 +142,9 @@ export default class Chat extends Component<Props, State> {
     }
 
     render() {
+        const {MessageList, LoginUser} = this.props;
+        console.log(LoginUser)
+
         // console.log('类型为',typeof this.state.message);
         // console.log(this.state.message);
         return (
@@ -149,18 +154,29 @@ export default class Chat extends Component<Props, State> {
                 </div>
                 <div className="chat-body" id="wrapper">
                     <ul className="chat-active">
-                        <div className="conversation-start">
-                            <span>11月30日 下午5:01</span>
-                        </div>
-                        <li>
-                            <div className="bubble you">系统繁忙，请稍后重试账号余额不足充值</div>
-                        </li>
-                        <li>
-                            <div className="bubble me">好的，收到</div>
-                        </li>
-                        <div className="conversation-start">
-                            <span>11月30日 下午5:01</span>
-                        </div>
+                        {/*<div className="conversation-start">*/}
+                            {/*<span>11月30日 下午5:01</span>*/}
+                        {/*</div>*/}
+                        {/*<li>*/}
+                            {/*<div className="bubble you">系统繁忙，请稍后重试账号余额不足充值</div>*/}
+                        {/*</li>*/}
+                        {/*<li>*/}
+                            {/*<div className="bubble me">好的，收到</div>*/}
+                        {/*</li>*/}
+                        {/*<div className="conversation-start">*/}
+                            {/*<span>11月30日 下午5:01</span>*/}
+                        {/*</div>*/}
+                        {
+                           Object.keys(MessageList).map((index)=>{
+                              let msg = MessageList[index];
+                              if (LoginUser['uid'] == msg['from']) {
+                                  return <li key={index}><div className="bubble me">{msg['msg']}</div></li>;
+                              } else {
+                                  return <li key={index}><div className="bubble you">{msg['msg']}</div></li>;
+                              };
+
+                           })
+                        }
                         {
                             this.state.message.map((item, index) => {
                                 return <li key={index}><div className="bubble me">{item}</div></li>;

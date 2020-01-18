@@ -25,7 +25,8 @@ export interface SessionUsersState {
 
 export interface SessionState {
   ChatIndex: number;
-  MessageList: string[];
+  LoginUser: object;
+  MessageList: SessionUsersState;
   SessionUsers:SessionUsersState;
 }
 

@@ -8,6 +8,7 @@ import ChatBox from "../components/ChatBox";
 function mapStateToProps(state: SessionStoreState) {
   return {
     ChatIndex: state.session.ChatIndex,
+    LoginUser: state.session.LoginUser,
     MessageList: state.session.MessageList,
     SessionUsers: state.session.SessionUsers,
   };
