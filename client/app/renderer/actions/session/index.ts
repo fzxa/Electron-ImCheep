@@ -39,10 +39,11 @@ export function session_users() {
   return(dispatch:Dispatch)=>{
 
     db.SessionUsers.toArray().then((users)=>{
-
-      dispatch({
-        type: SESSION_USERS,
-        payload:users
+      db.MessageList.toArray().then((msg) => {
+        dispatch({
+          type: SESSION_USERS,
+          payload:{users,msg}
+        })
       })
     })
   };

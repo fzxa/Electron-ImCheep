@@ -10,15 +10,15 @@ const INITIAL_STATE = {
 };
 
 function SwitchChat(state = INITIAL_STATE, action:any): SessionState {
-    console.log(action.payload)
+
     state.ChatIndex = action.payload.idx;
     return state;
 }
 
 function GetSessionUsers(state = INITIAL_STATE, action:any):SessionState {
-    console.log(action.payload)
-    state.SessionUsers = action.payload
 
+    state.SessionUsers = action.payload.users
+    state.MessageList = action.payload.msg;
     return state;
 
 }

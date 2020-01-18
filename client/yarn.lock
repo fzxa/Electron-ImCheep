@@ -270,6 +270,13 @@
   dependencies:
     redux "*"
 
+"@types/uuid@^3.4.6":
+  version "3.4.6"
+  resolved "http://r.tnpm.oa.com/@types/uuid/download/@types/uuid-3.4.6.tgz#d2c4c48eb85a757bf2927f75f939942d521e3016"
+  integrity sha1-0sTEjrhadXvykn91+TmULVIeMBY=
+  dependencies:
+    "@types/node" "*"
+
 "@types/webrtc@^0.0.25":
   version "0.0.25"
   resolved "https://registry.npm.taobao.org/@types/webrtc/download/@types/webrtc-0.0.25.tgz#bd2b4e7b4c13250b3d58439623f2b9adfd7dee9e"
@@ -8905,6 +8912,11 @@ uuid@^2.0.2:
 uuid@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
+
+uuid@^3.3.3:
+  version "3.3.3"
+  resolved "http://r.tnpm.oa.com/uuid/download/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
+  integrity sha1-RWjwIW54dg7h2/Ok0s9T4iQRKGY=
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"
