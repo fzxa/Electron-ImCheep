@@ -27,6 +27,8 @@
 .sidebar-list .new-friend {
     font-size:15px;
     border-bottom:1px solid #efefef;
+    border-top:1px solid #efefef;
+    padding:5px 0;
 
 }
 .sidebar-list .new-friend a {
