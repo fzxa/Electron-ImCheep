@@ -3,6 +3,7 @@ import OverlayScrollbars from 'overlayscrollbars';
 
 import './Organization.css';
 import Tree from 'antd/es/tree';
+import Icon from 'antd/es/icon';
 import 'antd/dist/antd.css';
 
 import {OrganizationListState, OrganizationState,} from "../../types";
@@ -66,13 +67,17 @@ export default class Organization extends Component<initialProps, initialState> 
 
                 <div className="top">
                     <input type="search" placeholder="搜索" />
-                    <a href="javascript:;" className="ti-plus"></a>
+                    <a href="javascript:;" className="ti-ptreeDefaultExpandAlllus"></a>
                 </div>
 
 
                 <div className="sidebar-list">
-                    <DirectoryTree defaultSelectedKeys={['三国科技']} defaultExpandedKeys={['三国科技']} onSelect={this.onSelect}>
-                        <TreeNode key="三国科技" title="三国科技">
+                    <div className="new-friend">
+                        <a href="javascript:;"><Icon type="user-add" style={{"width":"20px", "height":"20px","paddingTop":"2px", "background":"#00AE2B", "color":"#fff"}}/><span>新的联系人</span></a>
+                    </div>
+                    <DirectoryTree defaultSelectedKeys={['三国科技公司']} defaultExpandedKeys={['三国科技公司']} onSelect={this.onSelect}>
+
+                        <TreeNode key="三国科技公司" title="三国科技公司" >
                         {
                             Object.keys(User).map((value:string, index: number, array:string[])=>{
 

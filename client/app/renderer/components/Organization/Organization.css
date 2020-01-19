@@ -24,6 +24,22 @@
     overflow:hidden;
 }
 
+.sidebar-list .new-friend {
+    font-size:15px;
+    border-bottom:1px solid #efefef;
+
+}
+.sidebar-list .new-friend a {
+    color:#333;
+    display:block;
+    padding:5px 20px;
+}
+.sidebar-list .new-friend span {
+    margin-left:10px;
+}
+.sidebar-list .ant-tree-title {
+    margin-left:10px;
+}
 .top {
     position: relative;
     width: 100%;
@@ -64,5 +80,5 @@
 
 /*custom style*/
 .ant-tree.ant-tree-directory > li span.ant-tree-node-content-wrapper > span, .ant-tree.ant-tree-directory .ant-tree-child-tree > li span.ant-tree-node-content-wrapper > span {
-    font-size:13px;
+    font-size:14px;
 }
