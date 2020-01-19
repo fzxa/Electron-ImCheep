@@ -19,6 +19,7 @@ interface initialProps {
     OrganizationTree: OrganizationListState;
     get_organization: ()=> void;
     get_organization_info: (uid:string)=>void;
+    message_send: ()=>void;
 }
 
 const { TreeNode, DirectoryTree } = Tree;
@@ -30,6 +31,7 @@ export default class Organization extends Component<initialProps, initialState> 
     public componentDidMount(): void {
         const {get_organization} = this.props;
         get_organization();
+
 
         //scroll
         let wrap:NodeListOf<Element> = document.querySelectorAll('.sidebar-list');
@@ -58,9 +60,9 @@ export default class Organization extends Component<initialProps, initialState> 
 
 
     public render() {
-        const { OrganizationTree, Profile } = this.props;
+        const { OrganizationTree, Profile, message_send } = this.props;
         let User:any = OrganizationTree;
-
+        console.log(this.props);
         return (
             <React.Fragment>
             <div className="sidebar-group">
@@ -101,7 +103,7 @@ export default class Organization extends Component<initialProps, initialState> 
                 </div>
                 {/*end sidebar-wrap*/}
             </div>
-            <ProfileInfo Profile={Profile}/>
+            <ProfileInfo Profile={Profile} message_send={message_send}/>
             </React.Fragment>
         );
     }

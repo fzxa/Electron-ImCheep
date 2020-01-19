@@ -9,6 +9,7 @@ interface MessageSend {
 }
 
 export function message_send(): MessageSend {
+  alert('message send')
   return {
     type: MESSAGE_SEND,
   };

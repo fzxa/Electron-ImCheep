@@ -4,13 +4,14 @@ import Button from 'antd/es/button';
 import Empty from 'antd/es/empty';
 import './Profile.css';
 import {OrganizationState} from "../../types";
+import {message_send} from "../../actions/chat";
 
 interface InitialProps {
+    message_send:()=>void;
     Profile: OrganizationState;
 }
 
 export default class Profile extends Component<InitialProps> {
-
 
     public render() {
         const { Profile } = this.props;
@@ -68,7 +69,7 @@ export default class Profile extends Component<InitialProps> {
                                 </tbody>
                             </table>
                             <div className="profile-footer">
-                                <Button type='primary' block>发消息</Button>
+                                <Button type='primary' block onClick={()=>{message_send()}}>发消息</Button>
                             </div>
                         </div>
                     }
